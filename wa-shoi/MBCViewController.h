@@ -10,4 +10,6 @@
 
 @interface MBCViewController : UIViewController
 
+@property IBOutlet UIImageView * backImageView;
+
 @end

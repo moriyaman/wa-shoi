@@ -21,6 +21,8 @@
 		02442A0E19985F4400CE46A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429F019985F4400CE46A6 /* UIKit.framework */; };
 		02442A1619985F4400CE46A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02442A1419985F4400CE46A6 /* InfoPlist.strings */; };
 		02442A1819985F4400CE46A6 /* wa_shoiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442A1719985F4400CE46A6 /* wa_shoiTests.m */; };
+		73DCB4DC19A3514E0095D915 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCB4DB19A3514E0095D915 /* TestViewController.m */; };
+		73DCB4DE19A356090095D915 /* start2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73DCB4DD19A356090095D915 /* start2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		02442A1319985F4400CE46A6 /* wa-shoiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wa-shoiTests-Info.plist"; sourceTree = "<group>"; };
 		02442A1519985F4400CE46A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		02442A1719985F4400CE46A6 /* wa_shoiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wa_shoiTests.m; sourceTree = "<group>"; };
+		73DCB4DA19A3514E0095D915 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		73DCB4DB19A3514E0095D915 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		73DCB4DD19A356090095D915 /* start2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = start2.jpg; path = ../../../Downloads/start2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +120,8 @@
 				024429FB19985F4400CE46A6 /* MBCAppDelegate.h */,
 				024429FC19985F4400CE46A6 /* MBCAppDelegate.m */,
 				024429FE19985F4400CE46A6 /* Main.storyboard */,
+				73DCB4DA19A3514E0095D915 /* TestViewController.h */,
+				73DCB4DB19A3514E0095D915 /* TestViewController.m */,
 				02442A0119985F4400CE46A6 /* MBCViewController.h */,
 				02442A0219985F4400CE46A6 /* MBCViewController.m */,
 				02442A0419985F4400CE46A6 /* Images.xcassets */,
@@ -126,6 +133,7 @@
 		024429F319985F4400CE46A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				73DCB4DD19A356090095D915 /* start2.jpg */,
 				024429F419985F4400CE46A6 /* wa-shoi-Info.plist */,
 				024429F519985F4400CE46A6 /* InfoPlist.strings */,
 				024429F819985F4400CE46A6 /* main.m */,
@@ -230,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02442A0519985F4400CE46A6 /* Images.xcassets in Resources */,
+				73DCB4DE19A356090095D915 /* start2.jpg in Resources */,
 				024429F719985F4400CE46A6 /* InfoPlist.strings in Resources */,
 				02442A0019985F4400CE46A6 /* Main.storyboard in Resources */,
 			);
@@ -252,6 +261,7 @@
 			files = (
 				024429F919985F4400CE46A6 /* main.m in Sources */,
 				02442A0319985F4400CE46A6 /* MBCViewController.m in Sources */,
+				73DCB4DC19A3514E0095D915 /* TestViewController.m in Sources */,
 				024429FD19985F4400CE46A6 /* MBCAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +467,7 @@
 				02442A1D19985F4400CE46A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02442A1E19985F4400CE46A6 /* Build configuration list for PBXNativeTarget "wa-shoiTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +476,7 @@
 				02442A2019985F4400CE46A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
