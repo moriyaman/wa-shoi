@@ -22,6 +22,8 @@
 		02442A1619985F4400CE46A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02442A1419985F4400CE46A6 /* InfoPlist.strings */; };
 		02442A1819985F4400CE46A6 /* wa_shoiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442A1719985F4400CE46A6 /* wa_shoiTests.m */; };
 		73BB6F6C19A6B88000841B45 /* figure.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73BB6F6B19A6B88000841B45 /* figure.jpg */; };
+		73BB6F7419A6DE0100841B45 /* account.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73BB6F7319A6DE0100841B45 /* account.jpg */; };
+		73BB6F7619A6DE0800841B45 /* dance.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73BB6F7519A6DE0800841B45 /* dance.jpg */; };
 		73DCB4DC19A3514E0095D915 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCB4DB19A3514E0095D915 /* TestViewController.m */; };
 		73DCB4DE19A356090095D915 /* start2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73DCB4DD19A356090095D915 /* start2.jpg */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		02442A1519985F4400CE46A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		02442A1719985F4400CE46A6 /* wa_shoiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wa_shoiTests.m; sourceTree = "<group>"; };
 		73BB6F6B19A6B88000841B45 /* figure.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = figure.jpg; path = ../../figure.jpg; sourceTree = "<group>"; };
+		73BB6F7319A6DE0100841B45 /* account.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = account.jpg; path = ../../../Downloads/account.jpg; sourceTree = "<group>"; };
+		73BB6F7519A6DE0800841B45 /* dance.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dance.jpg; path = ../../../Downloads/dance.jpg; sourceTree = "<group>"; };
 		73DCB4DA19A3514E0095D915 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		73DCB4DB19A3514E0095D915 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		73DCB4DD19A356090095D915 /* start2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = start2.jpg; path = ../../../Downloads/start2.jpg; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 		024429F319985F4400CE46A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				73BB6F7519A6DE0800841B45 /* dance.jpg */,
+				73BB6F7319A6DE0100841B45 /* account.jpg */,
 				73BB6F6B19A6B88000841B45 /* figure.jpg */,
 				73DCB4DD19A356090095D915 /* start2.jpg */,
 				024429F419985F4400CE46A6 /* wa-shoi-Info.plist */,
@@ -241,10 +247,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				02442A0519985F4400CE46A6 /* Images.xcassets in Resources */,
+				73BB6F7419A6DE0100841B45 /* account.jpg in Resources */,
 				73DCB4DE19A356090095D915 /* start2.jpg in Resources */,
 				73BB6F6C19A6B88000841B45 /* figure.jpg in Resources */,
 				024429F719985F4400CE46A6 /* InfoPlist.strings in Resources */,
 				02442A0019985F4400CE46A6 /* Main.storyboard in Resources */,
+				73BB6F7619A6DE0800841B45 /* dance.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
