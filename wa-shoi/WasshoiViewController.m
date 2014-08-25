@@ -39,7 +39,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return 5;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,6 +52,17 @@
 {
     return [_wasshoiUserTableView dequeueReusableCellWithIdentifier:@"UserCell"];
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SystemSoundID hirai_wasshoi_scoud;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Hirai_wasshoi" ofType:@"m4a"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hirai_wasshoi_scoud);
+    AudioServicesPlaySystemSound(hirai_wasshoi_scoud);
+}
+
 
 /*
 #pragma mark - Navigation
