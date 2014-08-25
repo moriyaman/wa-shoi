@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wJU-DZ-0zg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wJU-DZ-0zg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -84,7 +84,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="家紋_03.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tin-B3-2oK">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tin-B3-2oK">
                                         <rect key="frame" x="250" y="15" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -92,7 +92,7 @@
                                 <color key="backgroundColor" red="0.049333270370000001" green="0.050602663149999998" blue="0.3463400136" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDA-ax-jBI">
-                                <rect key="frame" x="0.0" y="120" width="320" height="410"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="466"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hep-El-7zA">
@@ -141,7 +141,7 @@
                                         <rect key="frame" x="173" y="424" width="10" height="10"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ryo_03.png" translatesAutoresizingMaskIntoConstraints="NO" id="j6e-Nf-oSB">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon2.png" translatesAutoresizingMaskIntoConstraints="NO" id="j6e-Nf-oSB">
                                         <rect key="frame" x="135" y="366" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -221,7 +221,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.049333270373247945" green="0.05060266315289428" blue="0.34634001358695654" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="figure.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5cG-NN-Jp7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image5.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5cG-NN-Jp7">
                                 <rect key="frame" x="0.0" y="80" width="320" height="488"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -304,10 +304,10 @@
         <image name="dance.jpg" width="683" height="1024"/>
         <image name="dot.png" width="70" height="70"/>
         <image name="dot2.png" width="70" height="70"/>
-        <image name="figure.jpg" width="688" height="1024"/>
-        <image name="ryo_03.png" width="80" height="80"/>
-        <image name="start2.jpg" width="676" height="1024"/>
-        <image name="家紋_03.png" width="80" height="80"/>
+        <image name="icon1.png" width="80" height="80"/>
+        <image name="icon2.png" width="80" height="80"/>
+        <image name="image5.jpg" width="688" height="1024"/>
+        <image name="start.jpg" width="676" height="1024"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
