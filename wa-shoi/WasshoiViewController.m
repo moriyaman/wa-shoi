@@ -27,8 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [_wasshoiUserTableView setDelegate:self];
-    [_wasshoiUserTableView setDataSource:self];
+    _wasshoiUserTableView.delegate = self;
+    _wasshoiUserTableView.dataSource = self;
     
 }
 
@@ -36,6 +36,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

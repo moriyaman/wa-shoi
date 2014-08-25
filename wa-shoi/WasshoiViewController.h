@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WasshoiViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface WasshoiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property IBOutlet UITableView * wasshoiUserTableView;
 
