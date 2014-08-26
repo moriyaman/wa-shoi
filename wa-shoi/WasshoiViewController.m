@@ -26,11 +26,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //long press
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1.0;
+    lpgr.delegate = self;
+    [_wasshoiUserTableView addGestureRecognizer:lpgr];
+    
     // Do any additional setup after loading the view.
     _wasshoiUserTableView.delegate = self;
     _wasshoiUserTableView.dataSource = self;
-    
 }
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+       CGPoint p = [gestureRecognizer locationInView:self.wasshoiUserTableView];
+       NSIndexPath *indexPath = [self.wasshoiUserTableView indexPathForRowAtPoint:p];
+       if (indexPath == nil) {
+          NSLog(@"long press on table view but not on a row");
+       } else {
+          UITableViewCell *cell = [self.wasshoiUserTableView cellForRowAtIndexPath:indexPath];
+          if (cell.isHighlighted) {
+            SystemSoundID hirai_long_wasshoi_scoud;
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"Hirai_long_wasshoi" ofType:@"mp3"];
+            NSURL *url = [NSURL fileURLWithPath:path];
+            AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hirai_long_wasshoi_scoud);
+            AudioServicesPlaySystemSound(hirai_long_wasshoi_scoud);
+            NSLog(@"long press on table view at section %d row %d", indexPath.section, indexPath.row);
+          }
+       }
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -61,6 +90,7 @@
     NSURL *url = [NSURL fileURLWithPath:path];
     AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hirai_wasshoi_scoud);
     AudioServicesPlaySystemSound(hirai_wasshoi_scoud);
+    return;
 }
 
 

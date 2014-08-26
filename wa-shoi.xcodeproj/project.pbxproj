@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0216C2BE19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */; };
 		024429ED19985F4400CE46A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429EC19985F4400CE46A6 /* Foundation.framework */; };
 		024429EF19985F4400CE46A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429EE19985F4400CE46A6 /* CoreGraphics.framework */; };
 		024429F119985F4400CE46A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429F019985F4400CE46A6 /* UIKit.framework */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hirai_long_wasshoi.mp3; sourceTree = "<group>"; };
 		024429E919985F4400CE46A6 /* wa-shoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wa-shoi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		024429EC19985F4400CE46A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		024429EE19985F4400CE46A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,6 +178,7 @@
 				02442A0219985F4400CE46A6 /* MBCViewController.m */,
 				025871B319AAD8D600769290 /* WasshoiViewController.h */,
 				025871B419AAD8D600769290 /* WasshoiViewController.m */,
+				0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */,
 				02442A0419985F4400CE46A6 /* Images.xcassets */,
 				024429F319985F4400CE46A6 /* Supporting Files */,
 				02D6BFA019AB54770022D839 /* SessionViewController.h */,
@@ -305,6 +308,7 @@
 				024C830C19AB44960041AE0C /* Hirai_wasshoi.m4a in Resources */,
 				02442A0519985F4400CE46A6 /* Images.xcassets in Resources */,
 				73DAA88219AAD7EA00A024FF /* image5.jpg in Resources */,
+				0216C2BE19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 in Resources */,
 				024C82FD19AAE3B40041AE0C /* arrow.png in Resources */,
 				024429F719985F4400CE46A6 /* InfoPlist.strings in Resources */,
 			);
