@@ -11,4 +11,7 @@
 
 @interface IntroViewController : UIViewController <EAIntroDelegate>
 
+@property IBOutlet UIView * sessionView;
+- (IBAction)facebookButtonTapped:(id)sender;
+
 @end

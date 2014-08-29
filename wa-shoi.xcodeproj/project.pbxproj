@@ -39,6 +39,8 @@
 		5951E4DEFACD459FBA41BBBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA30B97178473FA0B4F656 /* libPods.a */; };
 		732E35F419AD82C1001C73CC /* IntroPage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F319AD82C1001C73CC /* IntroPage1.xib */; };
 		732E35F619AD834F001C73CC /* IntroPage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F519AD834F001C73CC /* IntroPage2.xib */; };
+		7386132819B011490064836B /* fuji (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7386132719B011490064836B /* fuji (1).jpg */; };
+		7386132A19B0125E0064836B /* IntroPage3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7386132919B0125E0064836B /* IntroPage3.xib */; };
 		73B90FF819AD77DF003E4852 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B90FF719AD77DF003E4852 /* IntroViewController.m */; };
 		73DAA88219AAD7EA00A024FF /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73DAA88119AAD7EA00A024FF /* image5.jpg */; };
 /* End PBXBuildFile section */
@@ -83,6 +85,8 @@
 		02D6BFA119AB54770022D839 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
 		732E35F319AD82C1001C73CC /* IntroPage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage1.xib; sourceTree = "<group>"; };
 		732E35F519AD834F001C73CC /* IntroPage2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage2.xib; sourceTree = "<group>"; };
+		7386132719B011490064836B /* fuji (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fuji (1).jpg"; sourceTree = "<group>"; };
+		7386132919B0125E0064836B /* IntroPage3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage3.xib; sourceTree = "<group>"; };
 		73B90FF619AD77DF003E4852 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
 		73B90FF719AD77DF003E4852 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		73DAA88119AAD7EA00A024FF /* image5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image5.jpg; sourceTree = "<group>"; };
@@ -173,11 +177,13 @@
 				73DAA88F19AAD9C900A024FF /* arrow2.png */,
 				73DAA89119AAD9D200A024FF /* dot2.png */,
 				73DAA89319AAD9DC00A024FF /* reverse_arrow.png */,
+				7386132719B011490064836B /* fuji (1).jpg */,
 				024429FB19985F4400CE46A6 /* MBCAppDelegate.h */,
 				024429FC19985F4400CE46A6 /* MBCAppDelegate.m */,
 				024429FE19985F4400CE46A6 /* Main.storyboard */,
 				732E35F319AD82C1001C73CC /* IntroPage1.xib */,
 				732E35F519AD834F001C73CC /* IntroPage2.xib */,
+				7386132919B0125E0064836B /* IntroPage3.xib */,
 				73B90FF619AD77DF003E4852 /* IntroViewController.h */,
 				73B90FF719AD77DF003E4852 /* IntroViewController.m */,
 				02442A0119985F4400CE46A6 /* MBCViewController.h */,
@@ -312,7 +318,9 @@
 				024C830719AAE4760041AE0C /* dot2.png in Resources */,
 				024C830819AAE4760041AE0C /* reverse_arrow.png in Resources */,
 				024C82F919AAE1D00041AE0C /* Main.storyboard in Resources */,
+				7386132A19B0125E0064836B /* IntroPage3.xib in Resources */,
 				024C830C19AB44960041AE0C /* Hirai_wasshoi.m4a in Resources */,
+				7386132819B011490064836B /* fuji (1).jpg in Resources */,
 				02442A0519985F4400CE46A6 /* Images.xcassets in Resources */,
 				732E35F419AD82C1001C73CC /* IntroPage1.xib in Resources */,
 				73DAA88219AAD7EA00A024FF /* image5.jpg in Resources */,

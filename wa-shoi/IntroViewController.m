@@ -7,6 +7,7 @@
 //
 
 #import "IntroViewController.h"
+#import <Parse/Parse.h>
 
 @interface IntroViewController ()
 
@@ -29,7 +30,8 @@
     // Do any additional setup after loading the view.
     EAIntroPage *page1 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage1"];
     EAIntroPage *page2 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage2"];
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
+    EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage3"];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2,page3]];
     [intro setDelegate:self];
     [intro showInView:self.view animateDuration:0.0];
 }
@@ -38,6 +40,26 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)facebookButtonTapped:(id)sender
+{
+    // パーミッション
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    // Facebook アカウントを使ってログイン
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            if (!error) {
+                NSLog(@"Facebook ログインをユーザーがキャンセル");
+            } else {
+                NSLog(@"Facebook ログイン中にエラーが発生: %@", error);
+            }
+        } else if (user.isNew) {
+            NSLog(@"Facebook サインアップ & ログイン完了!");
+        } else {
+            NSLog(@"Facebook ログイン完了!");
+        }
+    }];
 }
 
 /*
