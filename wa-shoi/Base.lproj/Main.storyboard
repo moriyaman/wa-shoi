@@ -239,7 +239,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="F8E14D0C-8F36-4F3A-803E-1151F69626F8" translatesAutoresizingMaskIntoConstraints="NO" id="yNs-v1-gZI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="07329719-E9BD-4B40-94FF-AD3E919F7584" translatesAutoresizingMaskIntoConstraints="NO" id="yNs-v1-gZI">
                                         <rect key="frame" x="260" y="20" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -305,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Fk-wL-6JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1107" y="-113"/>
+            <point key="canvasLocation" x="1105" y="-113"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="NOu-vj-1I3">
@@ -404,11 +404,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OT7-xN-UDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1523" y="-113"/>
+            <point key="canvasLocation" x="1495" y="-113"/>
         </scene>
     </scenes>
     <resources>
-        <image name="F8E14D0C-8F36-4F3A-803E-1151F69626F8" width="70" height="70">
+        <image name="07329719-E9BD-4B40-94FF-AD3E919F7584" width="70" height="70">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
