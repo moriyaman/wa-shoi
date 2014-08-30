@@ -7,6 +7,7 @@
 //
 
 #import "WasshoiViewController.h"
+#import <Parse/Parse.h>
 
 @interface WasshoiViewController ()
 
@@ -85,12 +86,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SystemSoundID hirai_wasshoi_scoud;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Hirai_wasshoi" ofType:@"m4a"];
-    NSURL *url = [NSURL fileURLWithPath:path];
-    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hirai_wasshoi_scoud);
-    AudioServicesPlaySystemSound(hirai_wasshoi_scoud);
+    
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"pa-ni- wasshoi", @"alert",
+                          @"Hirai_wasshoi.m4a", @"sound",
+                          nil];
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannels:[NSArray arrayWithObjects:@"global", nil]];
+    [push setData:data];
+    [push sendPushInBackground];
+    // SystemSoundID hirai_wasshoi_scoud;
+    // NSString *path = [[NSBundle mainBundle] pathForResource:@"Hirai_wasshoi" ofType:@"m4a"];
+    // NSURL *url = [NSURL fileURLWithPath:path];
+    // AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hirai_wasshoi_scoud);
+    // AudioServicesPlaySystemSound(hirai_wasshoi_scoud);
     return;
+    
+    
 }
 
 
