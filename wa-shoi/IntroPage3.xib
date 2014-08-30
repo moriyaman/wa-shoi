@@ -17,7 +17,7 @@
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="プライバシーポリシー" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0L-vu-OOE">
                             <rect key="frame" x="20" y="20" width="239" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -29,57 +29,57 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <view alpha="0.40000000596046448" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-Wr-wf2">
-                    <rect key="frame" x="0.0" y="119" width="320" height="410"/>
+                    <rect key="frame" x="0.0" y="79" width="320" height="489"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqg-Z0-Hfq">
-                            <rect key="frame" x="20" y="20" width="280" height="150"/>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njB-7G-shf">
+                            <rect key="frame" x="20" y="60" width="280" height="312"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </scrollView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqg-Z0-Hfq">
+                            <rect key="frame" x="15" y="60" width="290" height="1552"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
-                            <string key="text">気持ちを盛り上げたい時に
-ここ１番の勝負時に
-落ち込んだ時に。
-どこからともなく賑やかな、
-神輿の音頭が聞こえてくる。</string>
+                            <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                            <mutableString key="text">株式会社アトラエ(以下、当社)は、当アプリケーション『わっしょい』を運営していく上で、個人情報の保護が重大なテーマであると認識し、全ての役員及び従業員が、当社の個人情報保護方針を遵守し、確実に実行するよう努めて参ります。
+
+・個人情報の取扱い（利用目的）について
+
+当社は、個人情報の取扱いにあたり、業務実態に応じた個人情報保護のための管理体制を確立するとともに、社内規定に従い適切かつ慎重に対応致します。
+(1) 個人情報の収集について
+個人情報を収集する際には、収集する目的を明確にし、その目的達成に必要な限度において適法かつ公正な手段を用います。
+(2) 個人情報の利用について
+個人情報を利用する際には、本人の同意を得た収集目的の範囲内のみでの利用と致します。
+(3) 個人情報の提供及び預託について
+個人情報を第三者に提供または委託する際には、本人の同意を得た収集目的の範囲内でこれを行います。尚、提供及び預託を行う場合は、本人の事前の承諾を得た後、これを行うこととします。
+
+
+・安全対策の実施について
+
+当社は、個人情報の正確性及び安全性を確保するために、情報セキュリティ対策をはじめとする安全対策を実施し、個人情報の漏洩、滅失又はき損を防止するよう努めて参ります。また、不適切な事項については是正を行うなどの内部規定を定め、個人情報を保護するよう努めて参ります。
+
+・法令・規範の遵守について
+
+当社は、確実な個人情報保護の実現のため、個人情報の取扱いに関する法令、国が定める指針及びその他の規範を遵守致します。
+
+・個人情報保護マネジメントシステムの継続的改善について
+
+当社は、内部監査や事業者の代表者による個人情報保護マネジメントシステムの見直しの機会を通じて個人情報保護マネジメントシステムを継続的に改善し、常に最良の状態を維持するよう努めて参ります。
+
+・個人情報に対する本人の権利の尊重
+
+当社は、個人情報に対する本人の権利を尊重し、個人情報に対して開示、訂正・削除、または利用もしくは提供の拒否を求められた時は、誠実に対応致します。
+
+2014年7月1日　制定
+株式会社アトラエ
+代表取締役　新居 佳英</mutableString>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4Q-dL-njD">
-                            <rect key="frame" x="20" y="215" width="280" height="86"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
-                            <string key="text">長押しすると、何か良いことが
-起こるかも・・・。</string>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="「わっしょい！」" translatesAutoresizingMaskIntoConstraints="NO" id="bXh-2u-ZUH">
-                            <rect key="frame" x="20" y="150" width="280" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dot.png" translatesAutoresizingMaskIntoConstraints="NO" id="L6q-QE-qJX">
-                            <rect key="frame" x="135" y="380" width="10" height="10"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dot2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yz6-zy-UN7">
-                            <rect key="frame" x="155" y="380" width="10" height="10"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dot2.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPF-3w-7Gw">
-                            <rect key="frame" x="175" y="380" width="10" height="10"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon2.png" translatesAutoresizingMaskIntoConstraints="NO" id="veU-XD-jAX">
-                            <rect key="frame" x="135" y="322" width="50" height="50"/>
+                            <rect key="frame" x="135" y="380" width="50" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -92,8 +92,6 @@
         </view>
     </objects>
     <resources>
-        <image name="dot.png" width="70" height="70"/>
-        <image name="dot2.png" width="70" height="70"/>
         <image name="fuji (1).jpg" width="675" height="1024"/>
         <image name="icon2.png" width="80" height="80"/>
     </resources>
