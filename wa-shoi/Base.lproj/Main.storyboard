@@ -80,6 +80,7 @@
                                         </state>
                                         <connections>
                                             <action selector="facebookButtonTapped:" destination="Xz7-OT-unz" eventType="touchUpInside" id="3Ga-Or-0UU"/>
+                                            <segue destination="4Jh-zZ-mna" kind="modal" id="W1t-EA-Nzt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -162,7 +163,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="28F17CEE-8048-4CF1-A3CB-FF8D42025D50" translatesAutoresizingMaskIntoConstraints="NO" id="yNs-v1-gZI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4B10696C-6DFA-43E9-8A58-2D2A4767D392" translatesAutoresizingMaskIntoConstraints="NO" id="yNs-v1-gZI">
                                         <rect key="frame" x="260" y="20" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -329,7 +330,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="28F17CEE-8048-4CF1-A3CB-FF8D42025D50" width="70" height="70">
+        <image name="4B10696C-6DFA-43E9-8A58-2D2A4767D392" width="70" height="70">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
