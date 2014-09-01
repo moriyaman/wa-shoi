@@ -32,9 +32,15 @@
 		024C830619AAE4760041AE0C /* arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAA88F19AAD9C900A024FF /* arrow2.png */; };
 		024C830719AAE4760041AE0C /* dot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAA89119AAD9D200A024FF /* dot2.png */; };
 		024C830819AAE4760041AE0C /* reverse_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DAA89319AAD9DC00A024FF /* reverse_arrow.png */; };
-		024C830A19AB43C30041AE0C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024C830919AB43C30041AE0C /* AudioToolbox.framework */; };
 		024C830C19AB44960041AE0C /* Hirai_wasshoi.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 024C830B19AB44960041AE0C /* Hirai_wasshoi.m4a */; };
 		025871B519AAD8D600769290 /* WasshoiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025871B419AAD8D600769290 /* WasshoiViewController.m */; };
+		025A9D8819B021950019BB60 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8719B021950019BB60 /* CFNetwork.framework */; };
+		025A9D8A19B021A20019BB60 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8919B021A20019BB60 /* CoreLocation.framework */; };
+		025A9D8C19B021AC0019BB60 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8B19B021AC0019BB60 /* MobileCoreServices.framework */; };
+		025A9D8E19B021BD0019BB60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8D19B021BD0019BB60 /* QuartzCore.framework */; };
+		025A9D9019B021C70019BB60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8F19B021C70019BB60 /* Security.framework */; };
+		025A9D9219B021D00019BB60 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9119B021D00019BB60 /* StoreKit.framework */; };
+		025A9D9419B021DC0019BB60 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */; };
 		02D6BFA219AB54770022D839 /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D6BFA119AB54770022D839 /* SessionViewController.m */; };
 		5951E4DEFACD459FBA41BBBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA30B97178473FA0B4F656 /* libPods.a */; };
 		732E35F419AD82C1001C73CC /* IntroPage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F319AD82C1001C73CC /* IntroPage1.xib */; };
@@ -77,10 +83,17 @@
 		02442A1519985F4400CE46A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		02442A1719985F4400CE46A6 /* wa_shoiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wa_shoiTests.m; sourceTree = "<group>"; };
 		024C82FC19AAE3B40041AE0C /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		024C830919AB43C30041AE0C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		024C830B19AB44960041AE0C /* Hirai_wasshoi.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hirai_wasshoi.m4a; sourceTree = "<group>"; };
 		025871B319AAD8D600769290 /* WasshoiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WasshoiViewController.h; sourceTree = "<group>"; };
 		025871B419AAD8D600769290 /* WasshoiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WasshoiViewController.m; sourceTree = "<group>"; };
+		025A9D8719B021950019BB60 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		025A9D8919B021A20019BB60 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		025A9D8B19B021AC0019BB60 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		025A9D8D19B021BD0019BB60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		025A9D8F19B021C70019BB60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		025A9D9119B021D00019BB60 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		025A9D9519B0E2770019BB60 /* wa-shoi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "wa-shoi.entitlements"; sourceTree = "<group>"; };
 		02D6BFA019AB54770022D839 /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		02D6BFA119AB54770022D839 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
 		732E35F319AD82C1001C73CC /* IntroPage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage1.xib; sourceTree = "<group>"; };
@@ -108,7 +121,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				024C830A19AB43C30041AE0C /* AudioToolbox.framework in Frameworks */,
+				025A9D9419B021DC0019BB60 /* SystemConfiguration.framework in Frameworks */,
+				025A9D9219B021D00019BB60 /* StoreKit.framework in Frameworks */,
+				025A9D9019B021C70019BB60 /* Security.framework in Frameworks */,
+				025A9D8E19B021BD0019BB60 /* QuartzCore.framework in Frameworks */,
+				025A9D8C19B021AC0019BB60 /* MobileCoreServices.framework in Frameworks */,
+				025A9D8A19B021A20019BB60 /* CoreLocation.framework in Frameworks */,
+				025A9D8819B021950019BB60 /* CFNetwork.framework in Frameworks */,
 				024429EF19985F4400CE46A6 /* CoreGraphics.framework in Frameworks */,
 				024429F119985F4400CE46A6 /* UIKit.framework in Frameworks */,
 				024429ED19985F4400CE46A6 /* Foundation.framework in Frameworks */,
@@ -152,7 +171,13 @@
 		024429EB19985F4400CE46A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				024C830919AB43C30041AE0C /* AudioToolbox.framework */,
+				025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */,
+				025A9D9119B021D00019BB60 /* StoreKit.framework */,
+				025A9D8F19B021C70019BB60 /* Security.framework */,
+				025A9D8D19B021BD0019BB60 /* QuartzCore.framework */,
+				025A9D8B19B021AC0019BB60 /* MobileCoreServices.framework */,
+				025A9D8919B021A20019BB60 /* CoreLocation.framework */,
+				025A9D8719B021950019BB60 /* CFNetwork.framework */,
 				024429EC19985F4400CE46A6 /* Foundation.framework */,
 				024429EE19985F4400CE46A6 /* CoreGraphics.framework */,
 				024429F019985F4400CE46A6 /* UIKit.framework */,
@@ -165,6 +190,7 @@
 		024429F219985F4400CE46A6 /* wa-shoi */ = {
 			isa = PBXGroup;
 			children = (
+				025A9D9519B0E2770019BB60 /* wa-shoi.entitlements */,
 				73DAA89519AADAD200A024FF /* start.jpg */,
 				73DAA88519AAD91300A024FF /* icon2.png */,
 				73DAA88319AAD90A00A024FF /* icon1.png */,
@@ -278,6 +304,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = yuki.moriyama;
 				TargetAttributes = {
+					024429E819985F4400CE46A6 = {
+						DevelopmentTeam = 54D42N829V;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
+					};
 					02442A0919985F4400CE46A6 = {
 						TestTargetID = 024429E819985F4400CE46A6;
 					};
@@ -509,10 +543,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wa-shoi/wa-shoi-Prefix.pch";
 				INFOPLIST_FILE = "wa-shoi/wa-shoi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0fff7524-33f2-418e-be34-fa31a8313386";
+				"PROVISIONING_PROFILE[sdk=*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -523,10 +561,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wa-shoi/wa-shoi-Prefix.pch";
 				INFOPLIST_FILE = "wa-shoi/wa-shoi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0fff7524-33f2-418e-be34-fa31a8313386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
