@@ -41,7 +41,9 @@
 		025A9D9019B021C70019BB60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8F19B021C70019BB60 /* Security.framework */; };
 		025A9D9219B021D00019BB60 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9119B021D00019BB60 /* StoreKit.framework */; };
 		025A9D9419B021DC0019BB60 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */; };
+		0266DFCA19B1CDC2007AEF83 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9619B1B6180019BB60 /* libc++.dylib */; };
 		02D6BFA219AB54770022D839 /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D6BFA119AB54770022D839 /* SessionViewController.m */; };
+		02FBD73819B1C03500A746F6 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBD73719B1C03500A746F6 /* Friend.m */; };
 		5951E4DEFACD459FBA41BBBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA30B97178473FA0B4F656 /* libPods.a */; };
 		732E35F419AD82C1001C73CC /* IntroPage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F319AD82C1001C73CC /* IntroPage1.xib */; };
 		732E35F619AD834F001C73CC /* IntroPage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F519AD834F001C73CC /* IntroPage2.xib */; };
@@ -94,8 +96,11 @@
 		025A9D9119B021D00019BB60 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		025A9D9519B0E2770019BB60 /* wa-shoi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "wa-shoi.entitlements"; sourceTree = "<group>"; };
+		025A9D9619B1B6180019BB60 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		02D6BFA019AB54770022D839 /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		02D6BFA119AB54770022D839 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
+		02FBD73619B1C03500A746F6 /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		02FBD73719B1C03500A746F6 /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		732E35F319AD82C1001C73CC /* IntroPage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage1.xib; sourceTree = "<group>"; };
 		732E35F519AD834F001C73CC /* IntroPage2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage2.xib; sourceTree = "<group>"; };
 		7386132719B011490064836B /* fuji (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fuji (1).jpg"; sourceTree = "<group>"; };
@@ -121,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0266DFCA19B1CDC2007AEF83 /* libc++.dylib in Frameworks */,
 				025A9D9419B021DC0019BB60 /* SystemConfiguration.framework in Frameworks */,
 				025A9D9219B021D00019BB60 /* StoreKit.framework in Frameworks */,
 				025A9D9019B021C70019BB60 /* Security.framework in Frameworks */,
@@ -171,6 +177,7 @@
 		024429EB19985F4400CE46A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				025A9D9619B1B6180019BB60 /* libc++.dylib */,
 				025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */,
 				025A9D9119B021D00019BB60 /* StoreKit.framework */,
 				025A9D8F19B021C70019BB60 /* Security.framework */,
@@ -206,6 +213,8 @@
 				7386132719B011490064836B /* fuji (1).jpg */,
 				024429FB19985F4400CE46A6 /* MBCAppDelegate.h */,
 				024429FC19985F4400CE46A6 /* MBCAppDelegate.m */,
+				02FBD73619B1C03500A746F6 /* Friend.h */,
+				02FBD73719B1C03500A746F6 /* Friend.m */,
 				024429FE19985F4400CE46A6 /* Main.storyboard */,
 				732E35F319AD82C1001C73CC /* IntroPage1.xib */,
 				732E35F519AD834F001C73CC /* IntroPage2.xib */,
@@ -413,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				024429F919985F4400CE46A6 /* main.m in Sources */,
+				02FBD73819B1C03500A746F6 /* Friend.m in Sources */,
 				02442A0319985F4400CE46A6 /* MBCViewController.m in Sources */,
 				025871B519AAD8D600769290 /* WasshoiViewController.m in Sources */,
 				73B90FF819AD77DF003E4852 /* IntroViewController.m in Sources */,
@@ -545,9 +555,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wa-shoi/wa-shoi-Prefix.pch";
 				INFOPLIST_FILE = "wa-shoi/wa-shoi-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0fff7524-33f2-418e-be34-fa31a8313386";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
@@ -563,9 +581,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wa-shoi/wa-shoi-Prefix.pch";
 				INFOPLIST_FILE = "wa-shoi/wa-shoi-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0fff7524-33f2-418e-be34-fa31a8313386";
 				WRAPPER_EXTENSION = app;

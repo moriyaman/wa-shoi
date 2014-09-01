@@ -9,6 +9,9 @@
 #import "MBCAppDelegate.h"
 #import <Parse/Parse.h>
 
+// #import <Realm/Realm.h>
+// #import "Friend.h"
+
 @implementation MBCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -19,6 +22,10 @@
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|
      UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeSound];
+    
+    // RLMRealm *realm = [RLMRealm defaultRealm];
+	// [realm beginWriteTransaction];
+	// [realm commitWriteTransaction];
     
     return YES;
 }
