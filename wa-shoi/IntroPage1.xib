@@ -52,10 +52,13 @@
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ihg-xy-D1u">
-                            <rect key="frame" x="135" y="380" width="50" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMC-bL-wfZ">
+                            <rect key="frame" x="135" y="349" width="50" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
+                            <state key="normal" image="icon2.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.026924485009999999" green="0.027570625410000001" blue="0.18263841710000001" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
