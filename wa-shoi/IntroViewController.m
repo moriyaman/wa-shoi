@@ -8,6 +8,7 @@
 
 #import "IntroViewController.h"
 #import <Parse/Parse.h>
+#import "FriendListsViewController.h"
 
 @interface IntroViewController ()
 
@@ -45,7 +46,7 @@
 - (IBAction)facebookButtonTapped:(id)sender
 {
     // パーミッション
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location", @"email", @"read_friendlists"];
     // Facebook アカウントを使ってログイン
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         if (!user) {
@@ -54,11 +55,38 @@
             } else {
                 NSLog(@"Facebook ログイン中にエラーが発生: %@", error);
             }
-        } else if (user.isNew) {
-            NSLog(@"Facebook サインアップ & ログイン完了!");
         } else {
-            NSLog(@"Facebook ログイン完了!");
+            [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    NSString *last_name = [result objectForKey:@"last_name"];
+                    NSString *user_name = [last_name stringByAppendingString:[result objectForKey:@"first_name"]];
+                    
+                    [[PFUser currentUser] setObject:[result objectForKey:@"email"]
+                                             forKey:@"email"];
+                    [[PFUser currentUser] setObject:user_name
+                                             forKey:@"user_name"];
+                    [[PFUser currentUser] setObject:[result objectForKey:@"id"]
+                                             forKey:@"uid"];
+                    [[PFUser currentUser] saveInBackground];
+                }
+            }];
+            
+            // FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+            // [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+            //                                             NSDictionary* result,
+            //                                              NSError *error) {
+            //    NSArray* friends = [result objectForKey:@"data"];
+            //    for (NSDictionary<FBGraphUser>* friend in friends) {
+            //        NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+            //    }
+            //}];
+            
+            
+            FriendListsViewController *friendListsViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
+            [self presentViewController:friendListsViewcontroller animated:YES completion:nil];
+            
         }
+        
     }];
 }
 

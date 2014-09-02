@@ -18,7 +18,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    _backImageView.image = [UIImage imageNamed:@"start2.jpg"];
 }
 
 - (void)didReceiveMemoryWarning

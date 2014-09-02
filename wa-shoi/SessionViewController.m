@@ -40,9 +40,10 @@
 - (IBAction)facebookButtonTapped:(id)sender
 {
     // パーミッション
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location", @"email"];
     // Facebook アカウントを使ってログイン
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        
         if (!user) {
             if (!error) {
                 NSLog(@"Facebook ログインをユーザーがキャンセル");
@@ -52,6 +53,7 @@
         } else if (user.isNew) {
             NSLog(@"Facebook サインアップ & ログイン完了!");
         } else {
+            NSLog(@"mail: %@", user.email);
             NSLog(@"Facebook ログイン完了!");
         }
     }];
