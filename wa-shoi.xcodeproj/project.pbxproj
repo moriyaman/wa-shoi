@@ -47,6 +47,7 @@
 		5951E4DEFACD459FBA41BBBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA30B97178473FA0B4F656 /* libPods.a */; };
 		732E35F419AD82C1001C73CC /* IntroPage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F319AD82C1001C73CC /* IntroPage1.xib */; };
 		732E35F619AD834F001C73CC /* IntroPage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F519AD834F001C73CC /* IntroPage2.xib */; };
+		736BCE9419B6A60000217C66 /* AoyagiKouzanTOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 736BCE9319B6A60000217C66 /* AoyagiKouzanTOTF.otf */; };
 		7386132819B011490064836B /* fuji (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7386132719B011490064836B /* fuji (1).jpg */; };
 		7386132A19B0125E0064836B /* IntroPage3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7386132919B0125E0064836B /* IntroPage3.xib */; };
 		73B90FF819AD77DF003E4852 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B90FF719AD77DF003E4852 /* IntroViewController.m */; };
@@ -103,6 +104,7 @@
 		02FBD73719B1C03500A746F6 /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		732E35F319AD82C1001C73CC /* IntroPage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage1.xib; sourceTree = "<group>"; };
 		732E35F519AD834F001C73CC /* IntroPage2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage2.xib; sourceTree = "<group>"; };
+		736BCE9319B6A60000217C66 /* AoyagiKouzanTOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AoyagiKouzanTOTF.otf; sourceTree = "<group>"; };
 		7386132719B011490064836B /* fuji (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fuji (1).jpg"; sourceTree = "<group>"; };
 		7386132919B0125E0064836B /* IntroPage3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage3.xib; sourceTree = "<group>"; };
 		73B90FF619AD77DF003E4852 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		024429F319985F4400CE46A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				736BCE9319B6A60000217C66 /* AoyagiKouzanTOTF.otf */,
 				024429F419985F4400CE46A6 /* wa-shoi-Info.plist */,
 				024429F519985F4400CE46A6 /* InfoPlist.strings */,
 				024429F819985F4400CE46A6 /* main.m */,
@@ -360,6 +363,7 @@
 				024C830619AAE4760041AE0C /* arrow2.png in Resources */,
 				024C830719AAE4760041AE0C /* dot2.png in Resources */,
 				024C830819AAE4760041AE0C /* reverse_arrow.png in Resources */,
+				736BCE9419B6A60000217C66 /* AoyagiKouzanTOTF.otf in Resources */,
 				024C82F919AAE1D00041AE0C /* Main.storyboard in Resources */,
 				7386132A19B0125E0064836B /* IntroPage3.xib in Resources */,
 				024C830C19AB44960041AE0C /* Hirai_wasshoi.m4a in Resources */,

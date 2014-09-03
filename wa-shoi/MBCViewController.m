@@ -19,6 +19,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _backImageView.image = [UIImage imageNamed:@"start2.jpg"];
+    
+    // Add new Font File
+    self.Kaishi.titleLabel.font = [UIFont fontWithName:@"AoyagiKouzanTOTF.otf" size:53];
 }
 
 - (void)didReceiveMemoryWarning
