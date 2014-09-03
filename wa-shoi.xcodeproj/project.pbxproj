@@ -42,7 +42,11 @@
 		025A9D9219B021D00019BB60 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9119B021D00019BB60 /* StoreKit.framework */; };
 		025A9D9419B021DC0019BB60 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */; };
 		0266DFCA19B1CDC2007AEF83 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9619B1B6180019BB60 /* libc++.dylib */; };
+		029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029CD61419B6104A00588416 /* FriendListsViewController.m */; };
+		029CD61719B6128400588416 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029CD61619B6128400588416 /* AddressBook.framework */; };
+		029CD61919B6134100588416 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029CD61819B6134100588416 /* AddressBookUI.framework */; };
 		02D6BFA219AB54770022D839 /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D6BFA119AB54770022D839 /* SessionViewController.m */; };
+		02F3394519B41778005A2C22 /* UserFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F3394419B41778005A2C22 /* UserFormViewController.m */; };
 		02FBD73819B1C03500A746F6 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBD73719B1C03500A746F6 /* Friend.m */; };
 		5951E4DEFACD459FBA41BBBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA30B97178473FA0B4F656 /* libPods.a */; };
 		732E35F419AD82C1001C73CC /* IntroPage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F319AD82C1001C73CC /* IntroPage1.xib */; };
@@ -98,8 +102,14 @@
 		025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		025A9D9519B0E2770019BB60 /* wa-shoi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "wa-shoi.entitlements"; sourceTree = "<group>"; };
 		025A9D9619B1B6180019BB60 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		029CD61319B6104A00588416 /* FriendListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListsViewController.h; sourceTree = "<group>"; };
+		029CD61419B6104A00588416 /* FriendListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListsViewController.m; sourceTree = "<group>"; };
+		029CD61619B6128400588416 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		029CD61819B6134100588416 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		02D6BFA019AB54770022D839 /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		02D6BFA119AB54770022D839 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
+		02F3394319B41778005A2C22 /* UserFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFormViewController.h; sourceTree = "<group>"; };
+		02F3394419B41778005A2C22 /* UserFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFormViewController.m; sourceTree = "<group>"; };
 		02FBD73619B1C03500A746F6 /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
 		02FBD73719B1C03500A746F6 /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		732E35F319AD82C1001C73CC /* IntroPage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage1.xib; sourceTree = "<group>"; };
@@ -128,6 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029CD61919B6134100588416 /* AddressBookUI.framework in Frameworks */,
+				029CD61719B6128400588416 /* AddressBook.framework in Frameworks */,
 				0266DFCA19B1CDC2007AEF83 /* libc++.dylib in Frameworks */,
 				025A9D9419B021DC0019BB60 /* SystemConfiguration.framework in Frameworks */,
 				025A9D9219B021D00019BB60 /* StoreKit.framework in Frameworks */,
@@ -179,6 +191,8 @@
 		024429EB19985F4400CE46A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				029CD61819B6134100588416 /* AddressBookUI.framework */,
+				029CD61619B6128400588416 /* AddressBook.framework */,
 				025A9D9619B1B6180019BB60 /* libc++.dylib */,
 				025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */,
 				025A9D9119B021D00019BB60 /* StoreKit.framework */,
@@ -226,12 +240,16 @@
 				02442A0119985F4400CE46A6 /* MBCViewController.h */,
 				02442A0219985F4400CE46A6 /* MBCViewController.m */,
 				025871B319AAD8D600769290 /* WasshoiViewController.h */,
+				029CD61319B6104A00588416 /* FriendListsViewController.h */,
+				029CD61419B6104A00588416 /* FriendListsViewController.m */,
 				025871B419AAD8D600769290 /* WasshoiViewController.m */,
 				0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */,
 				02442A0419985F4400CE46A6 /* Images.xcassets */,
 				024429F319985F4400CE46A6 /* Supporting Files */,
 				02D6BFA019AB54770022D839 /* SessionViewController.h */,
 				02D6BFA119AB54770022D839 /* SessionViewController.m */,
+				02F3394319B41778005A2C22 /* UserFormViewController.h */,
+				02F3394419B41778005A2C22 /* UserFormViewController.m */,
 			);
 			path = "wa-shoi";
 			sourceTree = "<group>";
@@ -425,11 +443,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */,
 				024429F919985F4400CE46A6 /* main.m in Sources */,
 				02FBD73819B1C03500A746F6 /* Friend.m in Sources */,
 				02442A0319985F4400CE46A6 /* MBCViewController.m in Sources */,
 				025871B519AAD8D600769290 /* WasshoiViewController.m in Sources */,
 				73B90FF819AD77DF003E4852 /* IntroViewController.m in Sources */,
+				02F3394519B41778005A2C22 /* UserFormViewController.m in Sources */,
 				024429FD19985F4400CE46A6 /* MBCAppDelegate.m in Sources */,
 				02D6BFA219AB54770022D839 /* SessionViewController.m in Sources */,
 			);
