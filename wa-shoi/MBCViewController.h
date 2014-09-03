@@ -10,8 +10,6 @@
 
 @interface MBCViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *Kaishi;
-
 @property IBOutlet UIImageView * backImageView;
 
 @end
