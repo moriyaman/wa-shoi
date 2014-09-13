@@ -12,5 +12,6 @@
 @interface WasshoiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property IBOutlet UITableView * wasshoiUserTableView;
+@property (nonatomic, strong) NSMutableArray *dataFriendUserLists;
 
 @end

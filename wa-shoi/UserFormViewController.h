@@ -9,5 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface UserFormViewController : UIViewController
+<UITextFieldDelegate, UIGestureRecognizerDelegate>
+
+- (IBAction)closeuserNameTextFieldKeybord:(id)sender;
+- (IBAction)closeuserPasswordTextFieldKeybord:(id)sender;
+- (IBAction)closeuserMailTextFieldKeybord:(id)sender;
+
+- (IBAction)userFormSubmit:(id)sender;
+
+@property IBOutlet UITextField * userNameTextField;
+@property IBOutlet UITextField * userPasswordTextField;
+@property IBOutlet UITextField * userMailTextField;
+
 
 @end

@@ -38,6 +38,26 @@
     // Do any additional setup after loading the view.
     _wasshoiUserTableView.delegate = self;
     _wasshoiUserTableView.dataSource = self;
+    
+    PFUser * toUser = [PFUser currentUser];
+    
+    // 友達一覧を獲得
+    PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friend"];
+    [friendQuery whereKey:@"user" equalTo:toUser];
+    PFQuery *userQuery = [PFUser query];
+    [userQuery whereKey:@"objectId" matchesKey:@"friendUserObjectId" inQuery:friendQuery];
+    
+    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if(!error){
+            NSLog(@"テスト: %@", objects);
+            _dataFriendUserLists = [NSMutableArray arrayWithArray:objects];
+            [self.wasshoiUserTableView reloadData];
+            
+        } else {
+            NSLog(@"メール:");
+        }
+    }];
+
 }
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -51,7 +71,7 @@
           UITableViewCell *cell = [self.wasshoiUserTableView cellForRowAtIndexPath:indexPath];
           if (cell.isHighlighted) {
             SystemSoundID hirai_long_wasshoi_scoud;
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"Hirai_long_wasshoi" ofType:@"mp3"];
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"kamiosakoWasshoi" ofType:@"m4a"];
             NSURL *url = [NSURL fileURLWithPath:path];
             AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hirai_long_wasshoi_scoud);
             AudioServicesPlaySystemSound(hirai_long_wasshoi_scoud);
@@ -69,7 +89,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.dataFriendUserLists.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -80,29 +100,72 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [_wasshoiUserTableView dequeueReusableCellWithIdentifier:@"UserCell"];
+    
+    static NSString *CellIdentifier = @"UserCell";
+    UITableViewCell *cell = [_wasshoiUserTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:CellIdentifier];
+    }
+    
+    NSString *userName = [self.dataFriendUserLists[indexPath.row] objectForKey:@"user_name"];
+    UILabel *userNameLabel = [cell viewWithTag:1];
+    userNameLabel.text = userName;
+    return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    PFUser * friendUser = self.dataFriendUserLists[indexPath.row];
+    PFUser * user = [PFUser currentUser];
+    
     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
                           @"pa-ni- wasshoi", @"alert",
                           @"Hirai_wasshoi.m4a", @"sound",
                           nil];
+    // Create our Installation query
+    
+    PFQuery *userQuery = [PFUser query];
+    [userQuery getObjectWithId: @"58Cvn81ySB"];
+    
+    // Find devices associated with these users
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"user" matchesQuery:userQuery];
+    
+    // Send push notification to query
     PFPush *push = [[PFPush alloc] init];
-    [push setChannels:[NSArray arrayWithObjects:@"global", nil]];
+    [push setQuery:pushQuery]; // Set our Installation query
+    [push setMessage:@"pa-ni-"];
     [push setData:data];
     [push sendPushInBackground];
-    // SystemSoundID hirai_wasshoi_scoud;
-    // NSString *path = [[NSBundle mainBundle] pathForResource:@"Hirai_wasshoi" ofType:@"m4a"];
-    // NSURL *url = [NSURL fileURLWithPath:path];
-    // AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hirai_wasshoi_scoud);
-    // AudioServicesPlaySystemSound(hirai_wasshoi_scoud);
+    
+    
+    // Date create
+    PFObject *wasshoi = [PFObject objectWithClassName:@"Wasshoi"];
+    PFRelation *userRelation = [wasshoi relationForKey:@"user"];
+    [userRelation addObject:user];
+    PFRelation *friendRelation = [wasshoi relationForKey:@"friendUser"];
+    [friendRelation addObject:friendUser];
+    wasshoi[@"userObjectId"] = user.objectId;
+    wasshoi[@"friendUserObjectId"] = friendUser.objectId;
+    
+    [wasshoi saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!succeeded) {
+            // エラー処理
+            NSLog(@"失敗しました");
+        } else {
+            NSLog(@"成功");
+        }
+    }];
+    
     return;
-    
-    
+}
+
+- (IBAction)firstViewReturnActionForSegue:(UIStoryboardSegue *)segue
+{
+    NSLog(@"First view return action invoked.");
 }
 
 

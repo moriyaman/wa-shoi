@@ -71,6 +71,8 @@
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
+    // ユーザの登録後setobject
     [currentInstallation setDeviceTokenFromData:deviceToken];
     currentInstallation.channels = @[@"global"];
     [currentInstallation saveInBackground];
