@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface MBCViewController : UIViewController
 
 @property IBOutlet UIImageView * backImageView;
+
+@property AVAudioPlayer *hand_drum;
+- (IBAction)play_drum;
 
 @end
