@@ -7,6 +7,8 @@
 //
 
 #import "UserFormViewController.h"
+#import <Parse/Parse.h>
+#import "FriendListsViewController.h"
 
 @interface UserFormViewController ()
 
@@ -20,6 +22,7 @@
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
@@ -33,6 +36,37 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)closeuserNameTextFieldKeybord:(id)sender {
+    [_userNameTextField resignFirstResponder];
+}
+- (IBAction)closeuserPasswordTextFieldKeybord:(id)sender {
+    [_userPasswordTextField resignFirstResponder];
+}
+- (IBAction)closeuserMailTextFieldKeybord:(id)sender {
+    [_userMailTextField resignFirstResponder];
+}
+- (IBAction)userFormSubmit:(id)sender {
+    PFUser *user = [PFUser user];
+    user.username = self.userNameTextField.text;
+    user.password = self.userPasswordTextField.text;
+    [user setObject:self.userNameTextField.text
+             forKey:@"user_name"];
+    [user setObject:self.userMailTextField.text
+             forKey:@"email"];
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(!error){
+            // ユーザの登録後setobject
+            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+            [currentInstallation setObject:[PFUser currentUser] forKey:@"user"];
+            [currentInstallation saveInBackground];
+            
+        }
+    }];
+
+    FriendListsViewController *friendListsViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
+    [self presentViewController:friendListsViewcontroller animated:YES completion:nil];
 }
 
 /*

@@ -10,6 +10,12 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
-@interface FriendListsViewController : UIViewController
+@interface FriendListsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchDisplayDelegate,UISearchBarDelegate>
+
+@property IBOutlet UITableView * userFriendsTableView;
+@property (nonatomic, strong) NSMutableArray *dataUserLists;
+@property (nonatomic, strong) NSMutableArray *mailLists;
+@property (nonatomic, strong) NSMutableArray *searchResult;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

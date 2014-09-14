@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0216C2BE19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */; };
+		021F030019C5510F0014D405 /* MypageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 021F02FF19C5510F0014D405 /* MypageViewController.m */; };
+		0236ABB919B773AA0070144A /* kamiosakoWasshoi.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0236ABB819B773AA0070144A /* kamiosakoWasshoi.m4a */; };
 		024429ED19985F4400CE46A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429EC19985F4400CE46A6 /* Foundation.framework */; };
 		024429EF19985F4400CE46A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429EE19985F4400CE46A6 /* CoreGraphics.framework */; };
 		024429F119985F4400CE46A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429F019985F4400CE46A6 /* UIKit.framework */; };
@@ -46,6 +48,7 @@
 		029CD61719B6128400588416 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029CD61619B6128400588416 /* AddressBook.framework */; };
 		029CD61919B6134100588416 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029CD61819B6134100588416 /* AddressBookUI.framework */; };
 		02D6BFA219AB54770022D839 /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D6BFA119AB54770022D839 /* SessionViewController.m */; };
+		02E4CA0919B751B00058ED9C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E4CA0819B751B00058ED9C /* LoginViewController.m */; };
 		02F3394519B41778005A2C22 /* UserFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F3394419B41778005A2C22 /* UserFormViewController.m */; };
 		02FBD73819B1C03500A746F6 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBD73719B1C03500A746F6 /* Friend.m */; };
 		5951E4DEFACD459FBA41BBBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA30B97178473FA0B4F656 /* libPods.a */; };
@@ -69,6 +72,9 @@
 
 /* Begin PBXFileReference section */
 		0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hirai_long_wasshoi.mp3; sourceTree = "<group>"; };
+		021F02FE19C5510F0014D405 /* MypageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MypageViewController.h; sourceTree = "<group>"; };
+		021F02FF19C5510F0014D405 /* MypageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MypageViewController.m; sourceTree = "<group>"; };
+		0236ABB819B773AA0070144A /* kamiosakoWasshoi.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = kamiosakoWasshoi.m4a; sourceTree = "<group>"; };
 		024429E919985F4400CE46A6 /* wa-shoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wa-shoi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		024429EC19985F4400CE46A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		024429EE19985F4400CE46A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,6 +113,8 @@
 		029CD61819B6134100588416 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		02D6BFA019AB54770022D839 /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		02D6BFA119AB54770022D839 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
+		02E4CA0719B751B00058ED9C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		02E4CA0819B751B00058ED9C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		02F3394319B41778005A2C22 /* UserFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFormViewController.h; sourceTree = "<group>"; };
 		02F3394419B41778005A2C22 /* UserFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFormViewController.m; sourceTree = "<group>"; };
 		02FBD73619B1C03500A746F6 /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
@@ -219,6 +227,7 @@
 				024C82FC19AAE3B40041AE0C /* arrow.png */,
 				73DAA88119AAD7EA00A024FF /* image5.jpg */,
 				73DAA88919AAD9AA00A024FF /* dance.jpg */,
+				0236ABB819B773AA0070144A /* kamiosakoWasshoi.m4a */,
 				024C830B19AB44960041AE0C /* Hirai_wasshoi.m4a */,
 				73DAA88D19AAD9C000A024FF /* dot.png */,
 				73DAA88F19AAD9C900A024FF /* arrow2.png */,
@@ -237,15 +246,19 @@
 				73B90FF719AD77DF003E4852 /* IntroViewController.m */,
 				02442A0119985F4400CE46A6 /* MBCViewController.h */,
 				02442A0219985F4400CE46A6 /* MBCViewController.m */,
-				025871B319AAD8D600769290 /* WasshoiViewController.h */,
 				029CD61319B6104A00588416 /* FriendListsViewController.h */,
 				029CD61419B6104A00588416 /* FriendListsViewController.m */,
+				025871B319AAD8D600769290 /* WasshoiViewController.h */,
 				025871B419AAD8D600769290 /* WasshoiViewController.m */,
+				021F02FE19C5510F0014D405 /* MypageViewController.h */,
+				021F02FF19C5510F0014D405 /* MypageViewController.m */,
 				0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */,
 				02442A0419985F4400CE46A6 /* Images.xcassets */,
 				024429F319985F4400CE46A6 /* Supporting Files */,
 				02D6BFA019AB54770022D839 /* SessionViewController.h */,
 				02D6BFA119AB54770022D839 /* SessionViewController.m */,
+				02E4CA0719B751B00058ED9C /* LoginViewController.h */,
+				02E4CA0819B751B00058ED9C /* LoginViewController.m */,
 				02F3394319B41778005A2C22 /* UserFormViewController.h */,
 				02F3394419B41778005A2C22 /* UserFormViewController.m */,
 			);
@@ -376,6 +389,7 @@
 				024C830419AAE4760041AE0C /* dance.jpg in Resources */,
 				024C830519AAE4760041AE0C /* dot.png in Resources */,
 				024C830619AAE4760041AE0C /* arrow2.png in Resources */,
+				0236ABB919B773AA0070144A /* kamiosakoWasshoi.m4a in Resources */,
 				024C830719AAE4760041AE0C /* dot2.png in Resources */,
 				024C830819AAE4760041AE0C /* reverse_arrow.png in Resources */,
 				024C82F919AAE1D00041AE0C /* Main.storyboard in Resources */,
@@ -442,7 +456,9 @@
 				029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */,
 				024429F919985F4400CE46A6 /* main.m in Sources */,
 				02FBD73819B1C03500A746F6 /* Friend.m in Sources */,
+				021F030019C5510F0014D405 /* MypageViewController.m in Sources */,
 				02442A0319985F4400CE46A6 /* MBCViewController.m in Sources */,
+				02E4CA0919B751B00058ED9C /* LoginViewController.m in Sources */,
 				025871B519AAD8D600769290 /* WasshoiViewController.m in Sources */,
 				73B90FF819AD77DF003E4852 /* IntroViewController.m in Sources */,
 				02F3394519B41778005A2C22 /* UserFormViewController.m in Sources */,
