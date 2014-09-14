@@ -21,6 +21,7 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0K-gf-dAi">
                             <rect key="frame" x="20" y="60" width="280" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                             <string key="text">気持ちを盛り上げたい時に
 ここ１番の勝負時に
