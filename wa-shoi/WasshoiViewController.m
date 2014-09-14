@@ -49,12 +49,10 @@
     
     [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if(!error){
-            NSLog(@"テスト: %@", objects);
             _dataFriendUserLists = [NSMutableArray arrayWithArray:objects];
             [self.wasshoiUserTableView reloadData];
-            
         } else {
-            NSLog(@"メール:");
+            [self showAlert:@"通信エラーが発生しました"];
         }
     }];
 
@@ -125,6 +123,7 @@
                           @"pa-ni- wasshoi", @"alert",
                           @"Hirai_wasshoi.m4a", @"sound",
                           nil];
+    
     // Create our Installation query
     
     PFQuery *userQuery = [PFUser query];
@@ -153,8 +152,7 @@
     
     [wasshoi saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!succeeded) {
-            // エラー処理
-            NSLog(@"失敗しました");
+            [self showAlert:@"わっしょいに失敗しました"];
         } else {
             NSLog(@"成功");
         }
@@ -179,5 +177,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)showAlert:(NSString*)text
+{
+    Class class = NSClassFromString(@"UIAlertController");
+    //if(class){
+    // UIAlertControllerを使ってアラートを表示
+    //    UIAlertController *alert = nil;
+    //    alert = [UIAlertController alertControllerWithTitle:@"Title"
+    //                                                message:text
+    //                                         preferredStyle:UIAlertControllerStyleAlert];
+    //    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+    //                                              style:UIAlertActionStyleDefault
+    //                                            handler:nil]];
+    //    [self presentViewController:alert animated:YES completion:nil];
+    //}else{
+    // UIAlertViewを使ってアラートを表示
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
+                                                    message:text
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
+    //}
+}
+
 
 @end

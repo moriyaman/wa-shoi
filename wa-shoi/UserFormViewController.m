@@ -8,6 +8,7 @@
 
 #import "UserFormViewController.h"
 #import <Parse/Parse.h>
+#import "FriendListsViewController.h"
 
 @interface UserFormViewController ()
 
@@ -54,8 +55,6 @@
              forKey:@"user_name"];
     [user setObject:self.userMailTextField.text
              forKey:@"email"];
-    [user setObject:self.userPasswordTextField.text
-             forKey:@"password"];
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(!error){
             // ユーザの登録後setobject
@@ -66,8 +65,8 @@
         }
     }];
 
-    
-    
+    FriendListsViewController *friendListsViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
+    [self presentViewController:friendListsViewcontroller animated:YES completion:nil];
 }
 
 /*

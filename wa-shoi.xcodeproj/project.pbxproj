@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0216C2BE19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */; };
+		021F030019C5510F0014D405 /* MypageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 021F02FF19C5510F0014D405 /* MypageViewController.m */; };
 		0236ABB919B773AA0070144A /* kamiosakoWasshoi.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0236ABB819B773AA0070144A /* kamiosakoWasshoi.m4a */; };
 		024429ED19985F4400CE46A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429EC19985F4400CE46A6 /* Foundation.framework */; };
 		024429EF19985F4400CE46A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429EE19985F4400CE46A6 /* CoreGraphics.framework */; };
@@ -71,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hirai_long_wasshoi.mp3; sourceTree = "<group>"; };
+		021F02FE19C5510F0014D405 /* MypageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MypageViewController.h; sourceTree = "<group>"; };
+		021F02FF19C5510F0014D405 /* MypageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MypageViewController.m; sourceTree = "<group>"; };
 		0236ABB819B773AA0070144A /* kamiosakoWasshoi.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = kamiosakoWasshoi.m4a; sourceTree = "<group>"; };
 		024429E919985F4400CE46A6 /* wa-shoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wa-shoi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		024429EC19985F4400CE46A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -247,6 +250,8 @@
 				029CD61419B6104A00588416 /* FriendListsViewController.m */,
 				025871B319AAD8D600769290 /* WasshoiViewController.h */,
 				025871B419AAD8D600769290 /* WasshoiViewController.m */,
+				021F02FE19C5510F0014D405 /* MypageViewController.h */,
+				021F02FF19C5510F0014D405 /* MypageViewController.m */,
 				0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */,
 				02442A0419985F4400CE46A6 /* Images.xcassets */,
 				024429F319985F4400CE46A6 /* Supporting Files */,
@@ -451,6 +456,7 @@
 				029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */,
 				024429F919985F4400CE46A6 /* main.m in Sources */,
 				02FBD73819B1C03500A746F6 /* Friend.m in Sources */,
+				021F030019C5510F0014D405 /* MypageViewController.m in Sources */,
 				02442A0319985F4400CE46A6 /* MBCViewController.m in Sources */,
 				02E4CA0919B751B00058ED9C /* LoginViewController.m in Sources */,
 				025871B519AAD8D600769290 /* WasshoiViewController.m in Sources */,
