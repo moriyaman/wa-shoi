@@ -28,7 +28,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
+    //自分で聞く用の「わっしょい」
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"kamiosakoWasshoi" ofType:@"m4a"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    self.kamiosakoWasshoi = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+    
+    
     // わっしょいの受信数を取得
     PFQuery *wasshoiQuery = [PFQuery queryWithClassName:@"Wasshoi"];
     [wasshoiQuery whereKey:@"friendUserObjectId" equalTo:[PFUser currentUser].objectId];
@@ -58,6 +64,12 @@
         }
     }];
 }
+
+
+- (IBAction)say_Wasshoi: (id)sender {
+    [self.kamiosakoWasshoi play];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

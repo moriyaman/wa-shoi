@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface MypageViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *sendCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recieveCountLabel;
+@property AVAudioPlayer *kamiosakoWasshoi;
+- (IBAction)say_Wasshoi;
 
 @end
