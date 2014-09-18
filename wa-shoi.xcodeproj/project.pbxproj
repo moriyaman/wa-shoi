@@ -60,6 +60,8 @@
 		731FA3A919C5840F0077629F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FA3A819C5840F0077629F /* AVFoundation.framework */; };
 		731FA3AB19C58B370077629F /* hand_drum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 731FA3AA19C58B370077629F /* hand_drum.mp3 */; };
 		731FA3B119C5BB580077629F /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FA3B019C5BB580077629F /* ScrollViewController.m */; };
+		731FA3B919C5DCCD0077629F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FA3B819C5DCCD0077629F /* TutorialViewController.m */; };
+		731FA3BC19C5DF2F0077629F /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FA3BB19C5DF2F0077629F /* TermsViewController.m */; };
 		732E35F419AD82C1001C73CC /* IntroPage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F319AD82C1001C73CC /* IntroPage1.xib */; };
 		732E35F619AD834F001C73CC /* IntroPage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732E35F519AD834F001C73CC /* IntroPage2.xib */; };
 		7386132819B011490064836B /* fuji (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7386132719B011490064836B /* fuji (1).jpg */; };
@@ -135,6 +137,10 @@
 		731FA3AA19C58B370077629F /* hand_drum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hand_drum.mp3; sourceTree = "<group>"; };
 		731FA3AF19C5BB580077629F /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
 		731FA3B019C5BB580077629F /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
+		731FA3B719C5DCCD0077629F /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		731FA3B819C5DCCD0077629F /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		731FA3BA19C5DF2F0077629F /* TermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
+		731FA3BB19C5DF2F0077629F /* TermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
 		732E35F319AD82C1001C73CC /* IntroPage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage1.xib; sourceTree = "<group>"; };
 		732E35F519AD834F001C73CC /* IntroPage2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPage2.xib; sourceTree = "<group>"; };
 		7386132719B011490064836B /* fuji (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fuji (1).jpg"; sourceTree = "<group>"; };
@@ -264,7 +270,11 @@
 				731FA3AF19C5BB580077629F /* ScrollViewController.h */,
 				731FA3B019C5BB580077629F /* ScrollViewController.m */,
 				732E35F319AD82C1001C73CC /* IntroPage1.xib */,
+				731FA3B719C5DCCD0077629F /* TutorialViewController.h */,
+				731FA3B819C5DCCD0077629F /* TutorialViewController.m */,
 				732E35F519AD834F001C73CC /* IntroPage2.xib */,
+				731FA3BA19C5DF2F0077629F /* TermsViewController.h */,
+				731FA3BB19C5DF2F0077629F /* TermsViewController.m */,
 				73B90FF619AD77DF003E4852 /* IntroViewController.h */,
 				73B90FF719AD77DF003E4852 /* IntroViewController.m */,
 				02442A0119985F4400CE46A6 /* MBCViewController.h */,
@@ -482,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731FA3BC19C5DF2F0077629F /* TermsViewController.m in Sources */,
 				029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */,
 				024429F919985F4400CE46A6 /* main.m in Sources */,
 				02FBD73819B1C03500A746F6 /* Friend.m in Sources */,
@@ -492,6 +503,7 @@
 				025871B519AAD8D600769290 /* WasshoiViewController.m in Sources */,
 				73B90FF819AD77DF003E4852 /* IntroViewController.m in Sources */,
 				02F3394519B41778005A2C22 /* UserFormViewController.m in Sources */,
+				731FA3B919C5DCCD0077629F /* TutorialViewController.m in Sources */,
 				024429FD19985F4400CE46A6 /* MBCAppDelegate.m in Sources */,
 				02D6BFA219AB54770022D839 /* SessionViewController.m in Sources */,
 			);
