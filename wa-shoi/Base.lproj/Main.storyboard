@@ -383,12 +383,12 @@
                                 </prototypes>
                             </tableView>
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" id="Gls-Ou-SaA">
-                                <rect key="frame" x="0.0" y="503" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="492" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ABm-GC-W25">
-                                <rect key="frame" x="140" y="508" width="40" height="40"/>
+                                <rect key="frame" x="140" y="497" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon2.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -873,7 +873,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="am3-EA-aKk"/>
         <segue reference="RbE-xP-ERI"/>
-        <segue reference="AVq-9S-r4r"/>
     </inferredMetricsTieBreakers>
 </document>
