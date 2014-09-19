@@ -87,11 +87,11 @@
                                 <color key="backgroundColor" red="0.026924485009999999" green="0.027570625410000001" blue="0.18263841710000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PBp-gP-Nc8">
-                                <rect key="frame" x="0.0" y="86" width="320" height="1650"/>
+                                <rect key="frame" x="0.0" y="85" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" editable="NO" id="hOQ-fI-epp">
-                                        <rect key="frame" x="15" y="0.0" width="290" height="1600"/>
+                                        <rect key="frame" x="15" y="40" width="290" height="1600"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -792,11 +792,11 @@
                                 <color key="backgroundColor" red="0.026924485009999999" green="0.027570625410000001" blue="0.18263841710000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BOh-PM-81M">
-                                <rect key="frame" x="0.0" y="86" width="320" height="1650"/>
+                                <rect key="frame" x="0.0" y="85" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" editable="NO" id="QY7-Mz-5F0">
-                                        <rect key="frame" x="15" y="20" width="290" height="1600"/>
+                                        <rect key="frame" x="15" y="40" width="290" height="1600"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -874,6 +874,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="am3-EA-aKk"/>
-        <segue reference="RbE-xP-ERI"/>
+        <segue reference="PkR-Wf-40R"/>
     </inferredMetricsTieBreakers>
 </document>
