@@ -164,6 +164,7 @@
     NSString *userName = [self.dataUserLists[indexPath.row] objectForKey:@"user_name"];
     UILabel *userNameLabel = [cell viewWithTag:1];
     userNameLabel.text = userName;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
