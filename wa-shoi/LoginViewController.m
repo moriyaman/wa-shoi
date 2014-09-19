@@ -7,8 +7,9 @@
 //
 
 #import "LoginViewController.h"
-#import <Parse/Parse.h>
 #import "FriendListsViewController.h"
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface LoginViewController ()
 

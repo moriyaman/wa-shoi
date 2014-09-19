@@ -18,4 +18,6 @@
 @property (nonatomic, strong) NSMutableArray *searchResult;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
+- (IBAction)shareLink;
+
 @end

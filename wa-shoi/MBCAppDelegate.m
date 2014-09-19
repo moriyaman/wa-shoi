@@ -8,6 +8,7 @@
 
 #import "MBCAppDelegate.h"
 #import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 // #import <Realm/Realm.h>
 // #import "Friend.h"

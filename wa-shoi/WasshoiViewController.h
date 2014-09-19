@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <SWTableViewCell.h>
+#import <YLImageView.h>
 
 @interface WasshoiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property IBOutlet UITableView * wasshoiUserTableView;
 @property (nonatomic, strong) NSMutableArray *dataFriendUserLists;
+@property (weak, nonatomic) IBOutlet YLImageView *lodingImage;
 
 @end
