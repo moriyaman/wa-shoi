@@ -172,24 +172,55 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    PFUser * friendUser = self.dataUserLists[indexPath.row];
-    PFUser * user = [PFUser currentUser];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    UITableViewCell *cell = [_userFriendsTableView cellForRowAtIndexPath:indexPath];
+    
+    UILabel *userNameLabel = [cell viewWithTag:1];
+    NSString *userName = userNameLabel.text;
+    
+    CGRect cellBounds = cell.bounds;
+    [indicator setCenter:CGPointMake((cellBounds.size.width)/2, (cellBounds.size.height)/2)];
+    [cell addSubview:indicator];
+    [indicator startAnimating];
+    userNameLabel.text = @"";
+    
+    
+    double delayInSeconds =  1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 
-    PFObject *friend = [PFObject objectWithClassName:@"Friend"];
-    PFRelation *userRelation = [friend relationForKey:@"user"];
-    [userRelation addObject:user];
+        PFUser * friendUser = self.dataUserLists[indexPath.row];
+        PFUser * user = [PFUser currentUser];
+        
+        PFObject *friend = [PFObject objectWithClassName:@"Friend"];
+        PFRelation *userRelation = [friend relationForKey:@"user"];
+        [userRelation addObject:user];
+        
+        PFRelation *friendRelation = [friend relationForKey:@"friendUser"];
+        [friendRelation addObject:friendUser];
+        friend[@"userObjectId"] = user.objectId;
+        friend[@"friendUserObjectId"] = friendUser.objectId;
+        [friend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!succeeded) {
+                [self showAlert:@"友達の登録に失敗しました。再度起動し直して実行してください"];
+            } else {
+                NSLog(@"成功");
+            }
+        }];
+        
+        [indicator removeFromSuperview];
+        userNameLabel.text = @"追加完了";
+    });
 
-    PFRelation *friendRelation = [friend relationForKey:@"friendUser"];
-    [friendRelation addObject:friendUser];
-    friend[@"userObjectId"] = user.objectId;
-    friend[@"friendUserObjectId"] = friendUser.objectId;
-    [friend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!succeeded) {
-            [self showAlert:@"友達の登録に失敗しました。再度起動し直して実行してください"];
-        } else {
-            NSLog(@"成功");
-        }
-    }];
+    // 遅延処理2
+    double washoiDelayInSeconds =  2.0;
+    dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
+    dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
+        NSIndexPath *cellIndexPath = [self.userFriendsTableView indexPathForCell:cell];
+        [self.dataUserLists removeObjectAtIndex:cellIndexPath.row];
+        [_userFriendsTableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    });
+    
 }
 
 - (void)showAlert:(NSString*)text

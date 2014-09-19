@@ -41,6 +41,7 @@
 		025A9D8C19B021AC0019BB60 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8B19B021AC0019BB60 /* MobileCoreServices.framework */; };
 		025A9D8E19B021BD0019BB60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8D19B021BD0019BB60 /* QuartzCore.framework */; };
 		025A9D9019B021C70019BB60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D8F19B021C70019BB60 /* Security.framework */; };
+		025A9D9219B021D00019BB60 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9119B021D00019BB60 /* StoreKit.framework */; };
 		025A9D9419B021DC0019BB60 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */; };
 		0266DFCA19B1CDC2007AEF83 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 025A9D9619B1B6180019BB60 /* libc++.dylib */; };
 		029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029CD61419B6104A00588416 /* FriendListsViewController.m */; };
@@ -114,6 +115,7 @@
 		025A9D8B19B021AC0019BB60 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		025A9D8D19B021BD0019BB60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		025A9D8F19B021C70019BB60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		025A9D9119B021D00019BB60 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		025A9D9519B0E2770019BB60 /* wa-shoi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "wa-shoi.entitlements"; sourceTree = "<group>"; };
 		025A9D9619B1B6180019BB60 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -178,6 +180,7 @@
 				029CD61719B6128400588416 /* AddressBook.framework in Frameworks */,
 				0266DFCA19B1CDC2007AEF83 /* libc++.dylib in Frameworks */,
 				025A9D9419B021DC0019BB60 /* SystemConfiguration.framework in Frameworks */,
+				025A9D9219B021D00019BB60 /* StoreKit.framework in Frameworks */,
 				025A9D9019B021C70019BB60 /* Security.framework in Frameworks */,
 				025A9D8E19B021BD0019BB60 /* QuartzCore.framework in Frameworks */,
 				025A9D8C19B021AC0019BB60 /* MobileCoreServices.framework in Frameworks */,
@@ -235,6 +238,7 @@
 				029CD61619B6128400588416 /* AddressBook.framework */,
 				025A9D9619B1B6180019BB60 /* libc++.dylib */,
 				025A9D9319B021DC0019BB60 /* SystemConfiguration.framework */,
+				025A9D9119B021D00019BB60 /* StoreKit.framework */,
 				025A9D8F19B021C70019BB60 /* Security.framework */,
 				025A9D8D19B021BD0019BB60 /* QuartzCore.framework */,
 				025A9D8B19B021AC0019BB60 /* MobileCoreServices.framework */,
@@ -660,7 +664,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0fff7524-33f2-418e-be34-fa31a8313386";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -686,7 +690,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0fff7524-33f2-418e-be34-fa31a8313386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
