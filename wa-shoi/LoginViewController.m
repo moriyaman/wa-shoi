@@ -61,7 +61,7 @@
                                 [currentInstallation saveInBackground];
                                 
                             }else{
-                                NSLog(@"名前かパスワードが間違ってるよん");
+                                [self showAlert:@"ユーザー名かパスワードが間違っています。"];
                             }
                         }
      ];
@@ -107,6 +107,31 @@
         }
         
     }];
+}
+
+
+- (void)showAlert:(NSString*)text
+{
+    Class class = NSClassFromString(@"UIAlertController");
+    //if(class){
+    // UIAlertControllerを使ってアラートを表示
+    //    UIAlertController *alert = nil;
+    //    alert = [UIAlertController alertControllerWithTitle:@"Title"
+    //                                                message:text
+    //                                         preferredStyle:UIAlertControllerStyleAlert];
+    //    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+    //                                              style:UIAlertActionStyleDefault
+    //                                            handler:nil]];
+    //    [self presentViewController:alert animated:YES completion:nil];
+    //}else{
+    // UIAlertViewを使ってアラートを表示
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
+                                                    message:text
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
+    //}
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "MypageViewController.h"
 #import <Parse/Parse.h>
+#import "LINEActivity.h"
 
 @interface MypageViewController ()
 
@@ -76,6 +77,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)shareLink {
+    
+    NSString *text  = @"わっしょいめっちゃ面白いよ！";
+    NSURL *url = [NSURL URLWithString:@"http://wasshoi.com"];
+    NSArray *activityItems = @[text, url];
+    LINEActivity *lineActivity = [[LINEActivity alloc] init];
+    
+    UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:activityItems
+                                                                               applicationActivities:@[lineActivity]];
+    [self presentViewController:activityView animated:YES completion:nil];
+}
+
 
 /*
 #pragma mark - Navigation
