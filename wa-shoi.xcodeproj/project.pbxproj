@@ -51,6 +51,7 @@
 		02E1A5A919CC18510074E9A7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E1A5A819CC18510074E9A7 /* Social.framework */; };
 		02E1A5AD19CC188B0074E9A7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E1A5AC19CC188B0074E9A7 /* Accounts.framework */; };
 		02E1A5B119CC91970074E9A7 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E1A5B019CC91970074E9A7 /* plus.png */; };
+		02E1A5B419CD1FB30074E9A7 /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E1A5B319CD1FB30074E9A7 /* AlertView.m */; };
 		02E4CA0919B751B00058ED9C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E4CA0819B751B00058ED9C /* LoginViewController.m */; };
 		02F3394519B41778005A2C22 /* UserFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F3394419B41778005A2C22 /* UserFormViewController.m */; };
 		02FBD73819B1C03500A746F6 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBD73719B1C03500A746F6 /* Friend.m */; };
@@ -130,6 +131,8 @@
 		02E1A5AC19CC188B0074E9A7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		02E1A5AE19CC18E40074E9A7 /* libPods-Parse-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse-iOS-SDK.a"; sourceTree = "<group>"; };
 		02E1A5B019CC91970074E9A7 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		02E1A5B219CD1FB30074E9A7 /* AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
+		02E1A5B319CD1FB30074E9A7 /* AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
 		02E4CA0719B751B00058ED9C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		02E4CA0819B751B00058ED9C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		02F3394319B41778005A2C22 /* UserFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFormViewController.h; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				029CD61419B6104A00588416 /* FriendListsViewController.m */,
 				025871B319AAD8D600769290 /* WasshoiViewController.h */,
 				025871B419AAD8D600769290 /* WasshoiViewController.m */,
+				02E1A5B219CD1FB30074E9A7 /* AlertView.h */,
+				02E1A5B319CD1FB30074E9A7 /* AlertView.m */,
 				021F02FE19C5510F0014D405 /* MypageViewController.h */,
 				021F02FF19C5510F0014D405 /* MypageViewController.m */,
 				0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */,
@@ -511,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E1A5B419CD1FB30074E9A7 /* AlertView.m in Sources */,
 				731FA3BC19C5DF2F0077629F /* TermsViewController.m in Sources */,
 				029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */,
 				024429F919985F4400CE46A6 /* main.m in Sources */,
