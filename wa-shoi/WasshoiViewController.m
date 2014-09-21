@@ -9,6 +9,7 @@
 #import "WasshoiViewController.h"
 #import <Parse/Parse.h>
 #import "FriendListsViewController.h"
+#import "AlertView.h"
 
 @interface WasshoiViewController ()
 
@@ -96,6 +97,14 @@
     NSIndexPath *cellIndexPath = [self.wasshoiUserTableView indexPathForCell:cell];
     PFUser *friendUser = self.dataFriendUserLists[cellIndexPath.row/2];
     PFUser *user = [PFUser currentUser];
+
+    PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friend"];
+    [friendQuery whereKey:@"userObjectId" equalTo:user.objectId];
+    [friendQuery whereKey:@"friendUserObjectId" equalTo:friendUser.objectId];
+    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        [objects[0] deleteInBackground];
+    }];
+
     
     if(index == 0){
         
@@ -111,20 +120,32 @@
         
         [blockUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!succeeded) {
-                [self showAlert:@"Blockの登録に失敗しました。再度起動し直して実行してください"];
+                [self showAlert:@"ブロックの登録に失敗しました。再度起動し直して実行してください"];
+                
+                
+            }else{
+                
+                [cell hideUtilityButtonsAnimated:YES];
+                UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
+                UIView *backgroudView = (UILabel *)[cell viewWithTag:2];
+                userNameLabel.text = @"ブロック！";
+                backgroudView.backgroundColor = [UIColor colorWithRed:0.235 green:0.702 blue:0.443 alpha:1.0];
+                
+                double washoiDelayInSeconds =  2.0;
+                dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
+                dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
+                    [self.dataFriendUserLists removeObjectAtIndex:(cellIndexPath.row)/2];
+                    
+                    NSIndexPath *newPath = [NSIndexPath indexPathForRow:cellIndexPath.row+1 inSection:cellIndexPath.section];
+                    [_wasshoiUserTableView deleteRowsAtIndexPaths:@[cellIndexPath, newPath] withRowAnimation:UITableViewRowAnimationFade];
+                    
+                });
             }
         }];
         // block
         
     }else if (index == 1){
-        
-        PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friend"];
-        [friendQuery whereKey:@"userObjectId" equalTo:user.objectId];
-        [friendQuery whereKey:@"friendUserObjectId" equalTo:friendUser.objectId];
-        [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-            [objects[0] deleteInBackground];
-        }];
-        
+
         [self.dataFriendUserLists removeObjectAtIndex:(cellIndexPath.row)/2];
         
         NSIndexPath *newPath = [NSIndexPath indexPathForRow:cellIndexPath.row+1 inSection:cellIndexPath.section];
@@ -160,10 +181,10 @@
     int friendAddCellNum = (int)self.dataFriendUserLists.count*2;
     if ((long)indexPath.row >= friendAddCellNum) {
         if(indexPath.row % 2 == 0){
-            UILabel *userNameLabel = [cell viewWithTag:1];
+            UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
             userNameLabel.text = @"";
         }else{
-            UILabel *userNameLabel = [cell viewWithTag:1];
+            UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
             UIView *backView = [cell viewWithTag:2];
             userNameLabel.text = nil;
             backView.backgroundColor = [UIColor clearColor];
@@ -176,10 +197,10 @@
             cell.rightUtilityButtons = [self rightButtons];
             cell.delegate = self;
             NSString *userName = [self.dataFriendUserLists[(indexPath.row)/2] objectForKey:@"user_name"];
-            UILabel *userNameLabel = [cell viewWithTag:1];
+            UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
             userNameLabel.text = userName;
         }else{
-            UILabel *userNameLabel = [cell viewWithTag:1];
+            UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
             UIView *backView = [cell viewWithTag:2];
             userNameLabel.text = nil;
             backView.backgroundColor = [UIColor clearColor];
@@ -196,10 +217,10 @@
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
-                                                title:@"Block"];
+                                                title:@"ブロック"];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"Delete"];
+                                                title:@"削除"];
     
     return rightUtilityButtons;
 }
@@ -210,7 +231,7 @@
     int friendAddCellNum = (int)self.dataFriendUserLists.count*2;
     
     if ((long)indexPath.row >= friendAddCellNum){
-
+        
         FriendListsViewController *friendListsViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
         [self presentViewController:friendListsViewcontroller animated:YES completion:nil];
         
@@ -219,79 +240,95 @@
         UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         UITableViewCell *cell = [_wasshoiUserTableView cellForRowAtIndexPath:indexPath];
         
-        UILabel *userNameLabel = [cell viewWithTag:1];
+        //user&friend
+        PFUser * friendUser = self.dataFriendUserLists[(indexPath.row)/2];
+        PFUser * user = [PFUser currentUser];
+        
+        UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
         NSString *userName = userNameLabel.text;
         
-        [indicator setCenter:CGPointMake(142, 31)];
+        CGRect cellBounds = cell.bounds;
+        [indicator setCenter:CGPointMake((cellBounds.size.width)/2, (cellBounds.size.height)/2)];
         [cell addSubview:indicator];
         [indicator startAnimating];
         userNameLabel.text = @"";
         
-        // 遅延処理
-        double delayInSeconds =  1.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [indicator removeFromSuperview];
-            userNameLabel.text = @"わっしょーい！";
-        });
-        
-        // 遅延処理2
-        double washoiDelayInSeconds =  2.0;
-        dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
-        dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
-            
-            
-            PFUser * friendUser = self.dataFriendUserLists[(indexPath.row)/2];
-            PFUser * user = [PFUser currentUser];
-            
-            NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"pa-ni- wasshoi", @"alert",
-                                  @"kamiosakoWasshoi.m4a", @"sound",
-                                  nil];
-            
-            
-            PFQuery *userQuery = [PFUser query];
-            [userQuery getObjectWithId: @"58Cvn81ySB"];
-            
-            // Find devices associated with these users
-            PFQuery *pushQuery = [PFInstallation query];
-            [pushQuery whereKey:@"user" matchesQuery:userQuery];
-            
-            // Send push notification to query
-            PFPush *push = [[PFPush alloc] init];
-            [push setQuery:pushQuery]; // Set our Installation query
-            [push setMessage:@"pa-ni-"];
-            [push setData:data];
-            [push sendPushInBackground];
-            
-            //[indicator removeFromSuperview];
-            //userNameLabel.text = @"わっしょーい！";
-            
-            // Date create
-            PFObject *wasshoi = [PFObject objectWithClassName:@"Wasshoi"];
-            PFRelation *userRelation = [wasshoi relationForKey:@"user"];
-            [userRelation addObject:user];
-            PFRelation *friendRelation = [wasshoi relationForKey:@"friendUser"];
-            [friendRelation addObject:friendUser];
-            wasshoi[@"userObjectId"] = user.objectId;
-            wasshoi[@"friendUserObjectId"] = friendUser.objectId;
-            
-            [wasshoi saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (!succeeded) {
-                    [self showAlert:@"わっしょいに失敗しました"];
-                } else {
-                    NSLog(@"成功");
+        //ブロックの確認
+        PFQuery *blockUserQuesry = [PFQuery queryWithClassName:@"BlockUser"];
+        [blockUserQuesry whereKey:@"friendUserObjectId" equalTo:user.objectId];
+        [blockUserQuesry whereKey:@"userObjectId" equalTo:friendUser.objectId];
+        [blockUserQuesry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if(!error){
+                if([objects count] > 0){
+                    [indicator removeFromSuperview];
+                    userNameLabel.text = userName;
+                    [self showAlert:@"ブロック登録されているのでわっしょいできません"];
+                }else{
+                    
+                    
+                    // 遅延処理
+                    double delayInSeconds =  1.0;
+                    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                        [indicator removeFromSuperview];
+                        userNameLabel.text = @"わっしょーい！";
+                    });
+                    
+                    // 遅延処理2
+                    double washoiDelayInSeconds =  2.0;
+                    dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
+                    dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
+                        
+                        NSString *notificationMsg = [[user objectForKey:@"user_name"] stringByAppendingString:@" わっしょい！"];
+                        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              notificationMsg, @"alert",
+                                              @"kamiosakoWasshoi.m4a", @"sound",
+                                              nil];
+                        
+                        
+                        PFQuery *userQuery = [PFUser query];
+                        [userQuery getObjectWithId: friendUser.objectId];
+                        
+                        // Find devices associated with these users
+                        PFQuery *pushQuery = [PFInstallation query];
+                        [pushQuery whereKey:@"user" matchesQuery:userQuery];
+                        
+                        // Send push notification to query
+                        PFPush *push = [[PFPush alloc] init];
+                        [push setQuery:pushQuery]; // Set our Installation query
+                        [push setMessage:@"wasshoi"];
+                        [push setData:data];
+                        [push sendPushInBackground];
+                        
+                        //[indicator removeFromSuperview];
+                        //userNameLabel.text = @"わっしょーい！";
+                        
+                        // Date create
+                        PFObject *wasshoi = [PFObject objectWithClassName:@"Wasshoi"];
+                        PFRelation *userRelation = [wasshoi relationForKey:@"user"];
+                        [userRelation addObject:user];
+                        PFRelation *friendRelation = [wasshoi relationForKey:@"friendUser"];
+                        [friendRelation addObject:friendUser];
+                        wasshoi[@"userObjectId"] = user.objectId;
+                        wasshoi[@"friendUserObjectId"] = friendUser.objectId;
+                        
+                        [wasshoi saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (!succeeded) {
+                                [self showAlert:@"わっしょいに失敗しました"];
+                            } else {
+                                NSLog(@"成功");
+                            }
+                        }];
+                        
+                        //最後に名前を戻す
+                        userNameLabel.text = userName;
+                    });
                 }
-            }];
-            
-            //最後に名前を戻す
-            userNameLabel.text = userName;
-        });
+            }
+        }];
+        
         
         // 動きの部分
-        NSInteger lastSectionIndex = [_wasshoiUserTableView numberOfSections] - 1;
-        NSInteger lastRowIndex = [_wasshoiUserTableView numberOfRowsInSection:lastSectionIndex] - 1;
-        
         NSIndexPath *topRow = [NSIndexPath indexPathForRow:0 inSection:0];
         NSIndexPath *topNextRow = [NSIndexPath indexPathForRow:1 inSection:0];
         
@@ -340,40 +377,14 @@
     }
 }
 
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
 - (void)showAlert:(NSString*)text
 {
-    Class class = NSClassFromString(@"UIAlertController");
-    //if(class){
-    // UIAlertControllerを使ってアラートを表示
-    //    UIAlertController *alert = nil;
-    //    alert = [UIAlertController alertControllerWithTitle:@"Title"
-    //                                                message:text
-    //                                         preferredStyle:UIAlertControllerStyleAlert];
-    //    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
-    //                                              style:UIAlertActionStyleDefault
-    //                                            handler:nil]];
-    //    [self presentViewController:alert animated:YES completion:nil];
-    //}else{
-    // UIAlertViewを使ってアラートを表示
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                                    message:text
-                                                   delegate:nil
-                                          cancelButtonTitle:nil
-                                          otherButtonTitles:@"OK", nil];
-    [alert show];
-    //}
+
+    AlertView *alertView = [AlertView new];
+    [alertView setTitle:@"Error"];
+    [alertView setOtherButtonTitle:@"OK"];
+    [alertView setText:text];
+    [alertView show];
 }
 
 @end

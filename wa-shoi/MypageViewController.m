@@ -9,6 +9,7 @@
 #import "MypageViewController.h"
 #import <Parse/Parse.h>
 #import "LINEActivity.h"
+#import "MBCViewController.h"
 
 @interface MypageViewController ()
 
@@ -90,16 +91,10 @@
     [self presentViewController:activityView animated:YES completion:nil];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)logout {
+    [PFUser logOut];
+    MBCViewController *mbcViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"mbcView"];
+    [self presentViewController:mbcViewcontroller animated:YES completion:nil];
 }
-*/
 
 @end

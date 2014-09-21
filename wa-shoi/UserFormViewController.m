@@ -95,15 +95,27 @@
                             PFInstallation *currentInstallation = [PFInstallation currentInstallation];
                             [currentInstallation setObject:[PFUser currentUser] forKey:@"user"];
                             [currentInstallation saveInBackground];
+                            
+                            FriendListsViewController *friendListsViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
+                            [self presentViewController:friendListsViewcontroller animated:YES completion:nil];
                         } else {
-                            [alertView setText:@"通信エラーが発生しました"];
-                            [alertView show];
+                            NSLog(@"%ld", (long)error.code);
+                            
+                            // errorの制御
+                            if((long)error.code == 125){
+                                [alertView setText:@"不正なメールアドレスです"];
+                                [alertView show];
+                            }else if ((long)error.code == 203){
+                                [alertView setText:@"既にこのメールアドレスは登録されています"];
+                                [alertView show];
+                            }else{
+                                [alertView setText:@"通信エラーが発生しました"];
+                                [alertView show];
+                            }
                         }
                     }];
-                    FriendListsViewController *friendListsViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
-                    [self presentViewController:friendListsViewcontroller animated:YES completion:nil];
                 }
-
+                
             } else {
                 [alertView setText:@"通信エラーが発生しました"];
                 [alertView show];

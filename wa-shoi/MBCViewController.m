@@ -51,8 +51,8 @@
 
 - (void)afterLogined
 {
-    //WasshoiViewController *wasshoiViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"wasshoiView"];
-    //[self presentViewController:wasshoiViewcontroller animated:YES completion:nil];
+    WasshoiViewController *wasshoiViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"wasshoiView"];
+    [self presentViewController:wasshoiViewcontroller animated:YES completion:nil];
     
 }
 
