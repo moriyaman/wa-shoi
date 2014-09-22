@@ -766,9 +766,9 @@
                                 </connections>
                             </button>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" id="mqX-qx-HJh">
-                                <rect key="frame" x="0.0" y="197" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="196" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.049333270370000001" green="0.050602663149999998" blue="0.3463400136" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="もらった数： ○○" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="itF-Xd-VS7">
                                 <rect key="frame" x="73" y="232" width="171" height="28"/>
