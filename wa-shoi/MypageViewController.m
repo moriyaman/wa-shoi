@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "LINEActivity.h"
 #import "MBCViewController.h"
+#import "ScrollViewController.h"
 
 @interface MypageViewController ()
 
@@ -65,11 +66,111 @@
           
         }
     }];
+    
+    _myPageTableView.delegate = self;
+    _myPageTableView.dataSource = self;
+
 }
 
 
-- (IBAction)say_Wasshoi: (id)sender {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1; //とりあえずセクションは1個
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row % 2 == 1){
+        return 20;
+    }else{
+        return 80;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"SettingCell";
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:CellIdentifier];
+    }
+    
+    UILabel *settingNameLabel = (UILabel *)[cell viewWithTag:1];
+
+    if(indexPath.row % 2 == 0){
+        
+        
+        switch(indexPath.row/2){
+            case 0:
+                settingNameLabel.text = @"自分にわっしょい";
+                break;
+            case 1:
+                settingNameLabel.text = @"友達を招待";
+                break;
+            case 2:
+                settingNameLabel.text = @"プライバシーポリシー";
+                break;
+            case 3:
+                settingNameLabel.text = @"利用規約";
+                break;
+            case 4:
+                settingNameLabel.text = @"ログアウト";
+                break;
+        }
+    
+    }else{
+        UIView *backView = [cell viewWithTag:2];
+        settingNameLabel.text = nil;
+        backView.backgroundColor = [UIColor clearColor];
+        
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row/2) {
+        case 0:
+            [self.kamiosakoWasshoi play];
+            break;
+        case 1:
+            [self shareLink];
+            break;
+        case 2:
+            [self modalPrivacyPolicy];
+            break;
+        case 3:
+            [self modalTermsView];
+            break;
+        case 4:
+            [self logout];
+            break;
+        default:
+            break;
+    }
+       return;
+}
+
+- (void)say_Wasshoi {
     [self.kamiosakoWasshoi play];
+}
+
+- (void)modalPrivacyPolicy {
+    ScrollViewController *scrollViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"privacyPolicy"];
+    [self presentViewController:scrollViewcontroller animated:YES completion:nil];
+}
+
+- (void)modalTermsView {
+    ScrollViewController *scrollViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"termsView"];
+    [self presentViewController:scrollViewcontroller animated:YES completion:nil];
 }
 
 
@@ -79,7 +180,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)shareLink {
+
+
+- (void)shareLink {
     
     NSString *text  = @"わっしょいめっちゃ面白いよ！";
     NSURL *url = [NSURL URLWithString:@"http://wasshoi.com"];
@@ -91,7 +194,7 @@
     [self presentViewController:activityView animated:YES completion:nil];
 }
 
-- (IBAction)logout {
+- (void)logout {
     [PFUser logOut];
     MBCViewController *mbcViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"mbcView"];
     [self presentViewController:mbcViewcontroller animated:YES completion:nil];

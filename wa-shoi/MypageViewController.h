@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface MypageViewController : UIViewController
+@interface MypageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *sendCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recieveCountLabel;
+@property IBOutlet UITableView * myPageTableView;
+
 @property AVAudioPlayer *kamiosakoWasshoi;
-- (IBAction)say_Wasshoi;
-- (IBAction)shareLink;
-- (IBAction)logout;
+
+- (void)say_Wasshoi;
+- (void)shareLink;
+- (void)logout;
 
 
 @end
