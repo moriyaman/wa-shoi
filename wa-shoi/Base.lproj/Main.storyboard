@@ -31,7 +31,7 @@
                                         </state>
                                         <connections>
                                             <action selector="play_drum:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BVs-Km-oji"/>
-                                            <segue destination="Xz7-OT-unz" kind="modal" id="OJF-V0-ACF"/>
+                                            <segue destination="Ecc-a8-aca" kind="modal" id="Q4x-1Z-CvX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -99,7 +99,7 @@
                                         </accessibility>
                                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
-                                        <string key="text">株式会社アトラエ(以下、当社)は、当アプリケーション『わっしょい』を運営していく上で、個人情報の保護が重大なテーマであると認識し、全ての役員及び従業員が、当社の個人情報保護方針を遵守し、確実に実行するよう努めて参ります。
+                                        <mutableString key="text">株式会社アトラエ(以下、当社)は、当アプリケーション『わっしょい』を運営していく上で、個人情報の保護が重大なテーマであると認識し、全ての役員及び従業員が、当社の個人情報保護方針を遵守し、確実に実行するよう努めて参ります。
 
 ・個人情報の取扱い（利用目的）について
 
@@ -128,9 +128,7 @@
 
 当社は、個人情報に対する本人の権利を尊重し、個人情報に対して開示、訂正・削除、または利用もしくは提供の拒否を求められた時は、誠実に対応致します。
 
-2014年7月1日　制定
-株式会社アトラエ
-代表取締役　新居 佳英</string>
+2014年9月19日　制定</mutableString>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -150,6 +148,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgb-ha-pLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957" y="25"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ehk-89-yi4">
+            <objects>
+                <viewController id="Ecc-a8-aca" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RhU-y0-pv8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dance.jpg" id="vbO-vS-9y9">
+                                <rect key="frame" x="0.0" y="78" width="320" height="490"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="LLb-pa-m0r">
+                                <rect key="frame" x="0.0" y="78" width="320" height="490"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" id="QHb-m2-eRz">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" id="a7s-f3-kH0">
+                                        <rect key="frame" x="20" y="60" width="280" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                        <string key="text">気持ちを盛り上げたい時に
+ここ１番の勝負時に
+落ち込んだ時に。
+どこからともなく賑やかな、
+神輿の音頭が聞こえてくる。</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" id="iQe-mv-Iqi">
+                                        <rect key="frame" x="20" y="312" width="280" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                        <string key="text">長押しすると、何か良いことが
+起こるかも・・・。</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="「わっしょい！」" id="hgR-it-0C8">
+                                        <rect key="frame" x="20" y="225" width="280" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="33"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XLF-zv-I4l">
+                                        <rect key="frame" x="135" y="413" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="icon2.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Xz7-OT-unz" kind="modal" id="RJR-Xx-Ti2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="rZA-S2-Lfu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="「わっしょい」極意" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4UF-d3-GJg">
+                                        <rect key="frame" x="0.0" y="20" width="216" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon1.png" id="L4C-eY-fYF">
+                                        <rect key="frame" x="250" y="15" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.049333270370000001" green="0.050602663149999998" blue="0.3463400136" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                        <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdg-SH-Bqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="528"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="S9m-J1-prB">
@@ -796,7 +889,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" editable="NO" id="QY7-Mz-5F0">
-                                        <rect key="frame" x="15" y="40" width="290" height="1600"/>
+                                        <rect key="frame" x="15" y="40" width="290" height="4000"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -804,38 +897,111 @@
                                         </accessibility>
                                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
-                                        <string key="text">株式会社アトラエ(以下、当社)は、当アプリケーション『わっしょい』を運営していく上で、個人情報の保護が重大なテーマであると認識し、全ての役員及び従業員が、当社の個人情報保護方針を遵守し、確実に実行するよう努めて参ります。
+                                        <mutableString key="text">第1条　はじめに
 
-・個人情報の取扱い（利用目的）について
+『わっしょい』（以下「本サービス」といいます）とは、株式会社アトラエ(以下、弊社)が提供する音声送信サービスです。本サービスをご利用になるにはこの利用規約（以下「本規約」といいます）に同意のうえご利用ください。本サービスの利用者（以下「利用者」といいます）は、本規約の全ての記載内容について同意するものとします。
+弊社は、弊社の判断により、本規約をいつでも任意の理由で変更することができるものとします。変更後の本規約は、弊社が別途定める場合を除いて、本サービス上に表示した後に初めて利用者が本サービスを利用した時点より効力を生じるものとします。
+本サービスには、本規約以外の利用条件が規定されている場合があります。それらの規定は名称の如何に関わらず本規約の一部を構成するものとします。なお、本規約の規定とそれらの規定が矛盾する場合には、弊社が別途定める場合を除き、本規約が優先して適用されるものとします。
 
-当社は、個人情報の取扱いにあたり、業務実態に応じた個人情報保護のための管理体制を確立するとともに、社内規定に従い適切かつ慎重に対応致します。
-(1) 個人情報の収集について
-個人情報を収集する際には、収集する目的を明確にし、その目的達成に必要な限度において適法かつ公正な手段を用います。
-(2) 個人情報の利用について
-個人情報を利用する際には、本人の同意を得た収集目的の範囲内のみでの利用と致します。
-(3) 個人情報の提供及び預託について
-個人情報を第三者に提供または委託する際には、本人の同意を得た収集目的の範囲内でこれを行います。尚、提供及び預託を行う場合は、本人の事前の承諾を得た後、これを行うこととします。
+第2条　アカウント登録
 
+本サービスを利用する場合は、本規約の内容に同意した上で、弊社所定の方法により、アカウント登録を行うものとします。ただし、アカウント登録をせずに利用できる機能を提供する場合がありますが、その場合も本規約が適用されるものとします。
 
-・安全対策の実施について
+第3条　アカウントの管理
 
-当社は、個人情報の正確性及び安全性を確保するために、情報セキュリティ対策をはじめとする安全対策を実施し、個人情報の漏洩、滅失又はき損を防止するよう努めて参ります。また、不適切な事項については是正を行うなどの内部規定を定め、個人情報を保護するよう努めて参ります。
+利用者は、自己の登録ID及びパスワードの不正利用の防止に努めるとともに、その管理について一切の責任を持つものとします。
+利用者はいかなる場合においても、アカウントを第三者に譲渡または貸与することはできません。
 
-・法令・規範の遵守について
+第4条　利用環境の整備
 
-当社は、確実な個人情報保護の実現のため、個人情報の取扱いに関する法令、国が定める指針及びその他の規範を遵守致します。
+利用者は、本サービスを利用するために必要なあらゆる機器、ソフトウェア、通信手段を自己の責任と費用において、適切に整備するものとします。
+利用者は自己の利用環境に応じて、コンピューター・ウィルスの感染の防止、不正アクセス及び情報漏洩の防止等のセキュリティ対策を講じるものとします。
+弊社は利用者の利用環境について一切関与せず、また一切の責任を負いません。
 
-・個人情報保護マネジメントシステムの継続的改善について
+第5条　サービスの変更等
 
-当社は、内部監査や事業者の代表者による個人情報保護マネジメントシステムの見直しの機会を通じて個人情報保護マネジメントシステムを継続的に改善し、常に最良の状態を維持するよう努めて参ります。
+弊社は、弊社の都合により、本サービスをいつでも任意の理由で、追加、変更、中断、終了することができます。
 
-・個人情報に対する本人の権利の尊重
+第6条　アプリケーションの使用許諾等
 
-当社は、個人情報に対する本人の権利を尊重し、個人情報に対して開示、訂正・削除、または利用もしくは提供の拒否を求められた時は、誠実に対応致します。
+弊社は、本サービスをアプリケーションで提供する場合、利用者に対し、本規約の定める条件に従い、本サービスの無償での譲渡禁止かつ非独占的な使用権を許諾しますが、本規約は、将来開発される本サービスのアップグレード等に対する使用権を許諾するものではありません。
+弊社は、利用者に通知することなく、本サービスの機能または仕様を変更することがあります。弊社は、弊社の都合により、本サービスの機能の一部または全部の利用を制限、中止または提供を中断、終了することがあります。
+利用者は、本サービスを、書面による弊社からの事前の承諾なしに、無断で複製、再配布などをする行為をしてはならないものとします。利用者は、本サービスを、修正、変更、改変、リバース・エンジニアリング、逆コンパイル、逆アセンブルなどをする行為をしてはならないものとします。
+本サービスの表示および本サービスの動作に必要とされるプログラムデータおよび関連するドキュメントファイル等は、予告なく自動的に変更・更新される場合があります。
 
-2014年7月1日　制定
-株式会社アトラエ
-代表取締役　新居 佳英</string>
+第7条　個人情報の取り扱い
+
+弊社は、個人情報を「プライバシーポリシー」に基づき、適切に取り扱うものとします。
+
+第8条　禁止事項
+
+利用者は、本サービスの利用にあたり、次に掲げる行為を行ってはならないものとします。
+(1)　弊社もしくは第三者の著作権、商標権等の知的財産権を侵害する行為、または侵害するおそれのある行為。
+(2)　弊社もしくは第三者の財産、プライバシーもしくは肖像権を侵害する行為、または侵害するおそれのある行為。
+(3)　弊社もしくは第三者を不当に差別もしくは誹謗中傷し、第三者への不当な差別を助長し、またはその名誉もしくは信用を毀損する行為。
+(4)　自分以外の人物を名乗ったり、代表権や代理権がないにもかかわらずあるものと装ったり、または他の人物や組織と提携、協力関係にあると偽る行為。
+(5)　詐欺、規制薬物の濫用、児童売買春、預貯金口座及び携帯電話の違法な売買等の犯罪に結びつく、または結びつくおそれのある行為。
+(6)　わいせつ、児童ポルノもしくは児童虐待に相当する情報を送信する行為、またはこれらの情報を収録した媒体を販売する行為、またはその送信、販売を想起させる広告を表示する行為。
+(7)　性行為、わいせつな行為等を目的として利用する行為。
+(8)　面識のない異性との出会い等を目的として利用する行為。
+(9)　違法な賭博・ギャンブルを行わせ、または違法な賭博・ギャンブルへの参加を勧誘する行為。
+(10)　違法行為（けん銃等の譲渡、爆発物の製造、児童ポルノの提供、公文書偽造、殺人、脅迫等）を請け負い、仲介し、または誘引する行為。
+(11)　人を自殺に誘引または勧誘する行為、または他者に危害の及ぶおそれの高い自殺の手段等を紹介するなどの行為。
+(12)　人の殺害・傷害現場、死体、その他残虐な行為を撮影した情報、または社会通念上他者に嫌悪感を抱かせたり、他の使用者が不快を感じる可能性が高いと弊社が判断する情報を送信する行為。
+(13)　無限連鎖講（ネズミ講）を開設し、またはこれを勧誘する行為。
+(14)　弊社の設備に蓄積された情報を不正に書き換え、または消去する行為。
+(15)　ソフトウェア・ハードウェアまたは電子通信機器を妨害・破壊または制限するために設計されたウィルス等の有害なコンピュータプログラム、コード、ファイル等を配信する行為。
+(16)　弊社または第三者のサーバーに負担をかける行為、もしくは、本サービスの運営やネットワーク・システムに支障を与える行為、またはこれらのおそれのある行為。
+(17)　その行為が前各号のいずれかに該当することを知りつつ、その行為を助長する目的でする行為。
+(18)　法令、公序良俗に違反し、または第三者の権利を侵害すると弊社が判断する行為。
+(19)　その他、他の利用者に迷惑をかける行為等の弊社が不適切と判断する行為。
+
+第9条　広告等
+
+弊社は、本サービス上に広告を表示することができるものとします。
+弊社は、利用者に対して新サービスの告知、広告配信、サービス運営上の事務連絡、その他情報の提供を行います。ただし、利用者が情報の提供を希望しない旨を、事前または事後に弊社所定の方法で通知した場合は、本サービスの提供に必要な場合を除いて、情報の提供を行わないものとします。
+
+第10条　権利譲渡の禁止
+
+利用者は、本規約に定める場合を除くほか、本規約に基づくいかなる権利または義務も第三者に移転、譲渡その他の処分を行うことはできません。
+
+第11条　責任の制限
+
+本サービスの利用に関し弊社が損害賠償義務を負う場合，利用者が弊社に本サービスの対価として支払った一月分の料金を限度額として賠償責任を負うものとします。
+
+第12条　免責
+
+本サービスの変更、利用の制限、中止または提供の中断、終了により利用者に生じた損害について、弊社は、故意または重過失による場合を除き、いかなる責任も負いません。
+弊社は、配信アプリケーションが適切に配信されることを保証しません。また、それに起因して利用者に生じた損害についての責任も負いません。
+配信アプリケーションの安全性や内容について弊社は何ら保証せず、それによって生じた損害についての責任も負いません。
+弊社は、本サービスにおける一切の動作保証、使用目的への適合性の保証、使用結果に関わる的確性や信頼性の保証をせず、かついかなる内容の瑕疵担保責任も負いません。
+アクセス過多、その他予期せぬ要因で表示速度の低下や障害等によって生じた損害について、弊社は、いかなる責任も負いません。
+弊社は、配信アプリケーションを監視したり、保存する義務を負いません。また、配信アプリケーションに本サービスを利用したことでなんらかの不具合が生じた場合も弊社は一切責任を負いません。
+弊社は、次に掲げる場合には、当該配信アプリケーションの内容を閲覧したり、保存したり、第三者に開示することができるものとします。弊社は、それによって生じたいかなる損害についても、一切責任を負いません。
+(1)　本サービスの技術的不具合の原因を解明し、解消するために必要な場合。
+(2)　裁判所や警察などの公的機関から、法令に基づく正式な照会を受けた場合。
+(3)　本規約に違反する行為またはそのおそれのある行為が行われ、配信アプリケーションの内容を確認する必要が生じたと弊社が判断した場合。
+(4)　人の生命、身体及び財産などに差し迫った危険があり、緊急の必要性があると弊社が判断した場合。
+(5)　その他本サービスを適切に運営するために必要が生じた場合。
+弊社は、本規約に違反する行為またはそのおそれのある行為が行われたと信じるに足りる相当な理由があると判断した場合には、当該行為を行った利用者に対して、事前の通知をおこなうことなく、配信アプリケーションの削除やサービスの利用制限等の弊社が必要と考える措置を講じる場合がありますが、それによって生じたいかなる損害についても、故意または重過失による場合を除き、一切責任を負いません。利用者は、弊社が本項の規定に基づいて行った措置に対して、異議を申し立てないものとします。
+本規約が消費者契約法（平成12年法律第61号）第2条第3項の消費者契約に該当する場合には、本規約のうち、弊社の損害賠償責任を完全に免責する規定は適用されないものとします。この場合において利用者に発生した損害が弊社の債務不履行または不法行為に基づくときは、弊社は、当該利用者が弊社に本サービスの対価として支払った一月分の料金を上限として損害賠償責任を負うものとします。ただし、弊社に故意または重過失がある場合は除きます。
+本規約の定めにかかわらず、いかなる場合においても弊社は、本サービスに関し次に掲げる損害については一切の責任を負いません。
+(1)　弊社の責に帰すべからざる事由から生じた損害。
+(2)　弊社の予見の有無に関わらず、特別の事情から生じた損害。
+(3)　サーバーのメンテナンスなど本サービスの提供にあたって必要不可欠な行為によって生じた損害。
+
+第19条　準拠法および管轄裁判所
+
+本規約の準拠法は、日本法とします。
+本サービスまたは本規約に関して利用者との間で疑義または争いが生じた場合には、誠意をもって協議することとしますが、それでもなお解決しない場合には、東京地方裁判所または東京簡易裁判所を第一審の専属的合意管轄裁判所とします。
+
+第20条　その他
+
+本規約の一部が法令に基づいて無効と判断されても、その他の規定は有効とします。
+本規約の一部がある利用者との関係で無効とされ、または取り消された場合でも、本規約はその他の利用者との関係では有効とします。
+
+2014年9月19日制定
+</mutableString>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -859,9 +1025,11 @@
     </scenes>
     <resources>
         <image name="account.jpg" width="678" height="1024"/>
+        <image name="dance.jpg" width="683" height="1024"/>
         <image name="facebook2.png" width="412" height="412"/>
         <image name="fuji (1).jpg" width="675" height="1024"/>
         <image name="gear.png" width="400" height="400"/>
+        <image name="icon1.png" width="80" height="80"/>
         <image name="icon2.png" width="80" height="80"/>
         <image name="image5.jpg" width="688" height="1024"/>
         <image name="plane2.png" width="412" height="389"/>
@@ -874,6 +1042,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="am3-EA-aKk"/>
-        <segue reference="CLR-18-OJc"/>
+        <segue reference="PkR-Wf-40R"/>
     </inferredMetricsTieBreakers>
 </document>
