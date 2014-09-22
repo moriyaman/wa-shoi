@@ -701,7 +701,7 @@
                                 </connections>
                             </button>
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" id="SuU-Qe-tdf">
-                                <rect key="frame" x="-2" y="498" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="498" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -752,7 +752,7 @@
                                 </connections>
                             </button>
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" id="Cfh-nS-DIu">
-                                <rect key="frame" x="-1" y="358" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="358" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -768,8 +768,8 @@
                                     <segue destination="fDc-aq-cVG" kind="modal" id="BF2-SY-hgi"/>
                                 </connections>
                             </button>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" id="mqX-qx-HJh">
-                                <rect key="frame" x="-1" y="197" width="320" height="70"/>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" id="mqX-qx-HJh">
+                                <rect key="frame" x="0.0" y="197" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -878,7 +878,7 @@
                                 </connections>
                             </button>
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" id="cMf-8E-amd">
-                                <rect key="frame" x="2" y="165" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="165" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1129,6 +1129,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="AVq-9S-r4r"/>
         <segue reference="PkR-Wf-40R"/>
-        <segue reference="pVz-7u-hpC"/>
+        <segue reference="lt9-wl-7Ka"/>
     </inferredMetricsTieBreakers>
 </document>
