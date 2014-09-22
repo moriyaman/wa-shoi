@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13A3028" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -99,7 +99,7 @@
                                         </accessibility>
                                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
-                                        <mutableString key="text">株式会社アトラエ(以下、当社)は、当アプリケーション『わっしょい』を運営していく上で、個人情報の保護が重大なテーマであると認識し、全ての役員及び従業員が、当社の個人情報保護方針を遵守し、確実に実行するよう努めて参ります。
+                                        <string key="text">株式会社アトラエ(以下、当社)は、当アプリケーション『わっしょい』を運営していく上で、個人情報の保護が重大なテーマであると認識し、全ての役員及び従業員が、当社の個人情報保護方針を遵守し、確実に実行するよう努めて参ります。
 
 ・個人情報の取扱い（利用目的）について
 
@@ -128,7 +128,7 @@
 
 当社は、個人情報に対する本人の権利を尊重し、個人情報に対して開示、訂正・削除、または利用もしくは提供の拒否を求められた時は、誠実に対応致します。
 
-2014年9月19日　制定</mutableString>
+2014年9月19日　制定</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -650,98 +650,88 @@
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" id="ZB4-Lg-Ewh">
                                 <rect key="frame" x="0.0" y="429" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ckf-tz-Tow">
-                                        <rect key="frame" x="60" y="6" width="200" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
-                                        <state key="normal" title="プライバシーポリシー">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="3Ce-g2-SHo" kind="modal" id="rqG-tr-Ylx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ckf-tz-Tow">
+                                <rect key="frame" x="60" y="435" width="200" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
+                                <state key="normal" title="プライバシーポリシー">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3Ce-g2-SHo" kind="modal" id="rqG-tr-Ylx"/>
+                                </connections>
+                            </button>
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" id="SuU-Qe-tdf">
                                 <rect key="frame" x="-2" y="498" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kc2-jz-u61">
-                                        <rect key="frame" x="60" y="6" width="200" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
-                                        <state key="normal" title="ログアウト">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logout" destination="ZII-hz-gxJ" eventType="touchUpInside" id="aRX-mE-fej"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kc2-jz-u61">
+                                <rect key="frame" x="60" y="504" width="200" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
+                                <state key="normal" title="ログアウト">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout" destination="ZII-hz-gxJ" eventType="touchUpInside" id="aRX-mE-fej"/>
+                                </connections>
+                            </button>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" id="49h-W5-izE">
                                 <rect key="frame" x="0.0" y="105" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gg3-SE-Ah6">
-                                        <rect key="frame" x="45" y="11" width="221" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="36"/>
-                                        <state key="normal" title="わっしょい">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="say_Wasshoi:" destination="ZII-hz-gxJ" eventType="touchUpInside" id="Ii7-l2-msW"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gg3-SE-Ah6">
+                                <rect key="frame" x="49" y="116" width="221" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="36"/>
+                                <state key="normal" title="わっしょい">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="say_Wasshoi:" destination="ZII-hz-gxJ" eventType="touchUpInside" id="Ii7-l2-msW"/>
+                                </connections>
+                            </button>
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" id="TqT-Fz-GmJ">
                                 <rect key="frame" x="0.0" y="287" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wnb-wS-o2h">
-                                        <rect key="frame" x="61" y="6" width="199" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="26"/>
-                                        <state key="normal" title="友人を招待">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="shareLink" destination="ZII-hz-gxJ" eventType="touchUpInside" id="tFT-Gl-g1o"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wnb-wS-o2h">
+                                <rect key="frame" x="60" y="293" width="199" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="26"/>
+                                <state key="normal" title="友人を招待">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareLink" destination="ZII-hz-gxJ" eventType="touchUpInside" id="tFT-Gl-g1o"/>
+                                </connections>
+                            </button>
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" id="Cfh-nS-DIu">
                                 <rect key="frame" x="-1" y="358" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jMr-Ua-UuO">
-                                        <rect key="frame" x="61" y="6" width="199" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
-                                        <state key="normal" title="利用規約">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="fDc-aq-cVG" kind="modal" id="BF2-SY-hgi"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jMr-Ua-UuO">
+                                <rect key="frame" x="60" y="364" width="199" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
+                                <state key="normal" title="利用規約">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="fDc-aq-cVG" kind="modal" id="BF2-SY-hgi"/>
+                                </connections>
+                            </button>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" id="mqX-qx-HJh">
                                 <rect key="frame" x="-1" y="197" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -938,7 +928,7 @@
                                         </accessibility>
                                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
-                                        <mutableString key="text">第1条　はじめに
+                                        <string key="text">第1条　はじめに
 
 『わっしょい』（以下「本サービス」といいます）とは、株式会社アトラエ(以下、弊社)が提供する音声送信サービスです。本サービスをご利用になるにはこの利用規約（以下「本規約」といいます）に同意のうえご利用ください。本サービスの利用者（以下「利用者」といいます）は、本規約の全ての記載内容について同意するものとします。
 弊社は、弊社の判断により、本規約をいつでも任意の理由で変更することができるものとします。変更後の本規約は、弊社が別途定める場合を除いて、本サービス上に表示した後に初めて利用者が本サービスを利用した時点より効力を生じるものとします。
@@ -1042,7 +1032,7 @@
 本規約の一部がある利用者との関係で無効とされ、または取り消された場合でも、本規約はその他の利用者との関係では有効とします。
 
 2014年9月19日制定
-</mutableString>
+</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1083,7 +1073,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="am3-EA-aKk"/>
+        <segue reference="AVq-9S-r4r"/>
         <segue reference="PkR-Wf-40R"/>
     </inferredMetricsTieBreakers>
 </document>
