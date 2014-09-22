@@ -23,6 +23,7 @@
 		02442A0E19985F4400CE46A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024429F019985F4400CE46A6 /* UIKit.framework */; };
 		02442A1619985F4400CE46A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02442A1419985F4400CE46A6 /* InfoPlist.strings */; };
 		02442A1819985F4400CE46A6 /* wa_shoiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442A1719985F4400CE46A6 /* wa_shoiTests.m */; };
+		024B453219CF24E2007833BE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 024B453119CF24E2007833BE /* libPods.a */; };
 		024C82F919AAE1D00041AE0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024429FE19985F4400CE46A6 /* Main.storyboard */; };
 		024C82FD19AAE3B40041AE0C /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 024C82FC19AAE3B40041AE0C /* arrow.png */; };
 		024C830019AAE4760041AE0C /* start.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73DAA89519AADAD200A024FF /* start.jpg */; };
@@ -70,7 +71,6 @@
 		7386132819B011490064836B /* fuji (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7386132719B011490064836B /* fuji (1).jpg */; };
 		73B90FF819AD77DF003E4852 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B90FF719AD77DF003E4852 /* IntroViewController.m */; };
 		73DAA88219AAD7EA00A024FF /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73DAA88119AAD7EA00A024FF /* image5.jpg */; };
-		87E278C64BD543FDAFA2221B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA30B97178473FA0B4F656 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +107,12 @@
 		02442A1319985F4400CE46A6 /* wa-shoiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wa-shoiTests-Info.plist"; sourceTree = "<group>"; };
 		02442A1519985F4400CE46A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		02442A1719985F4400CE46A6 /* wa_shoiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wa_shoiTests.m; sourceTree = "<group>"; };
+		024B453119CF24E2007833BE /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		024B453319CF26CA007833BE /* libPods-ParseFacebookUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ParseFacebookUtils.a"; path = "Pods/build/Debug-iphoneos/libPods-ParseFacebookUtils.a"; sourceTree = "<group>"; };
+		024B453519CF28B3007833BE /* libPods-ParseFacebookUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ParseFacebookUtils.a"; path = "Pods/build/Debug-iphoneos/libPods-ParseFacebookUtils.a"; sourceTree = "<group>"; };
+		024B453719CF29A3007833BE /* libPods-Parse-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse-iOS-SDK.a"; sourceTree = "<group>"; };
+		024B453919CF29AB007833BE /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
+		024B453B19CF8D3D007833BE /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
 		024C82FC19AAE3B40041AE0C /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		024C830B19AB44960041AE0C /* Hirai_wasshoi.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hirai_wasshoi.m4a; sourceTree = "<group>"; };
 		025871B319AAD8D600769290 /* WasshoiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WasshoiViewController.h; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024B453219CF24E2007833BE /* libPods.a in Frameworks */,
 				02E1A5AD19CC188B0074E9A7 /* Accounts.framework in Frameworks */,
 				02E1A5A919CC18510074E9A7 /* Social.framework in Frameworks */,
 				731FA3A919C5840F0077629F /* AVFoundation.framework in Frameworks */,
@@ -192,7 +199,6 @@
 				024429EF19985F4400CE46A6 /* CoreGraphics.framework in Frameworks */,
 				024429F119985F4400CE46A6 /* UIKit.framework in Frameworks */,
 				024429ED19985F4400CE46A6 /* Foundation.framework in Frameworks */,
-				87E278C64BD543FDAFA2221B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +238,12 @@
 		024429EB19985F4400CE46A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				024B453B19CF8D3D007833BE /* libPods-Parse.a */,
+				024B453919CF29AB007833BE /* libPods-Parse.a */,
+				024B453719CF29A3007833BE /* libPods-Parse-iOS-SDK.a */,
+				024B453519CF28B3007833BE /* libPods-ParseFacebookUtils.a */,
+				024B453319CF26CA007833BE /* libPods-ParseFacebookUtils.a */,
+				024B453119CF24E2007833BE /* libPods.a */,
 				02E1A5AE19CC18E40074E9A7 /* libPods-Parse-iOS-SDK.a */,
 				02E1A5AC19CC188B0074E9A7 /* Accounts.framework */,
 				02E1A5AA19CC18610074E9A7 /* libPods-Facebook-iOS-SDK.a */,
@@ -668,10 +680,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/build/Release-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0fff7524-33f2-418e-be34-fa31a8313386";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
+				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -694,9 +708,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/build/Release-iphoneos",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0fff7524-33f2-418e-be34-fa31a8313386";
+				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
