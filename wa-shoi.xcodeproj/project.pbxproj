@@ -48,6 +48,10 @@
 		029CD61719B6128400588416 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029CD61619B6128400588416 /* AddressBook.framework */; };
 		029CD61919B6134100588416 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029CD61819B6134100588416 /* AddressBookUI.framework */; };
 		02D6BFA219AB54770022D839 /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D6BFA119AB54770022D839 /* SessionViewController.m */; };
+		02E1A5A919CC18510074E9A7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E1A5A819CC18510074E9A7 /* Social.framework */; };
+		02E1A5AD19CC188B0074E9A7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E1A5AC19CC188B0074E9A7 /* Accounts.framework */; };
+		02E1A5B119CC91970074E9A7 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E1A5B019CC91970074E9A7 /* plus.png */; };
+		02E1A5B419CD1FB30074E9A7 /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E1A5B319CD1FB30074E9A7 /* AlertView.m */; };
 		02E4CA0919B751B00058ED9C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E4CA0819B751B00058ED9C /* LoginViewController.m */; };
 		02F3394519B41778005A2C22 /* UserFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F3394419B41778005A2C22 /* UserFormViewController.m */; };
 		02FBD73819B1C03500A746F6 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBD73719B1C03500A746F6 /* Friend.m */; };
@@ -122,6 +126,13 @@
 		029CD61819B6134100588416 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		02D6BFA019AB54770022D839 /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		02D6BFA119AB54770022D839 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
+		02E1A5A819CC18510074E9A7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		02E1A5AA19CC18610074E9A7 /* libPods-Facebook-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Facebook-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Facebook-iOS-SDK.a"; sourceTree = "<group>"; };
+		02E1A5AC19CC188B0074E9A7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		02E1A5AE19CC18E40074E9A7 /* libPods-Parse-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse-iOS-SDK.a"; sourceTree = "<group>"; };
+		02E1A5B019CC91970074E9A7 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		02E1A5B219CD1FB30074E9A7 /* AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
+		02E1A5B319CD1FB30074E9A7 /* AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
 		02E4CA0719B751B00058ED9C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		02E4CA0819B751B00058ED9C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		02F3394319B41778005A2C22 /* UserFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFormViewController.h; sourceTree = "<group>"; };
@@ -165,6 +176,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E1A5AD19CC188B0074E9A7 /* Accounts.framework in Frameworks */,
+				02E1A5A919CC18510074E9A7 /* Social.framework in Frameworks */,
 				731FA3A919C5840F0077629F /* AVFoundation.framework in Frameworks */,
 				029CD61919B6134100588416 /* AddressBookUI.framework in Frameworks */,
 				029CD61719B6128400588416 /* AddressBook.framework in Frameworks */,
@@ -219,6 +232,10 @@
 		024429EB19985F4400CE46A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02E1A5AE19CC18E40074E9A7 /* libPods-Parse-iOS-SDK.a */,
+				02E1A5AC19CC188B0074E9A7 /* Accounts.framework */,
+				02E1A5AA19CC18610074E9A7 /* libPods-Facebook-iOS-SDK.a */,
+				02E1A5A819CC18510074E9A7 /* Social.framework */,
 				731FA3A819C5840F0077629F /* AVFoundation.framework */,
 				029CD61819B6134100588416 /* AddressBookUI.framework */,
 				029CD61619B6128400588416 /* AddressBook.framework */,
@@ -246,6 +263,7 @@
 				731FA3A019C575200077629F /* plane2.png */,
 				731FA39E19C574340077629F /* plane.png */,
 				731FA3A219C57C2A0077629F /* facebook.png */,
+				02E1A5B019CC91970074E9A7 /* plus.png */,
 				731FA3A419C57C360077629F /* facebook2.png */,
 				731FA39C19C574200077629F /* gear.png */,
 				73DAA89519AADAD200A024FF /* start.jpg */,
@@ -283,6 +301,8 @@
 				029CD61419B6104A00588416 /* FriendListsViewController.m */,
 				025871B319AAD8D600769290 /* WasshoiViewController.h */,
 				025871B419AAD8D600769290 /* WasshoiViewController.m */,
+				02E1A5B219CD1FB30074E9A7 /* AlertView.h */,
+				02E1A5B319CD1FB30074E9A7 /* AlertView.m */,
 				021F02FE19C5510F0014D405 /* MypageViewController.h */,
 				021F02FF19C5510F0014D405 /* MypageViewController.m */,
 				0216C2BD19AC2B6E0085976E /* Hirai_long_wasshoi.mp3 */,
@@ -381,6 +401,9 @@
 					024429E819985F4400CE46A6 = {
 						DevelopmentTeam = 54D42N829V;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
 							com.apple.InterAppAudio = {
 								enabled = 0;
 							};
@@ -417,6 +440,7 @@
 			files = (
 				024C830019AAE4760041AE0C /* start.jpg in Resources */,
 				024C830119AAE4760041AE0C /* icon2.png in Resources */,
+				02E1A5B119CC91970074E9A7 /* plus.png in Resources */,
 				732E35F619AD834F001C73CC /* IntroPage2.xib in Resources */,
 				024C830219AAE4760041AE0C /* icon1.png in Resources */,
 				731FA39D19C574200077629F /* gear.png in Resources */,
@@ -492,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E1A5B419CD1FB30074E9A7 /* AlertView.m in Sources */,
 				731FA3BC19C5DF2F0077629F /* TermsViewController.m in Sources */,
 				029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */,
 				024429F919985F4400CE46A6 /* main.m in Sources */,

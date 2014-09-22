@@ -7,6 +7,8 @@
 //
 
 #import "MBCViewController.h"
+#import "WasshoiViewController.h"
+#import <Parse/Parse.h>
 
 @interface MBCViewController ()
 
@@ -19,10 +21,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     // _backImageView.image = [UIImage imageNamed:@"start2.jpg"];
-
+    
+    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"hand_drum" ofType:@"mp3"];
     NSURL *url = [NSURL fileURLWithPath:path];
     self.hand_drum = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if([PFUser currentUser].sessionToken != nil && [[PFUser currentUser].sessionToken length] > 0){
+        [self afterLogined];
+    }
+    
 }
 
 - (IBAction)play_drum: (id)sender {
@@ -34,6 +47,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)afterLogined
+{
+    WasshoiViewController *wasshoiViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"wasshoiView"];
+    [self presentViewController:wasshoiViewcontroller animated:YES completion:nil];
+    
 }
 
 @end

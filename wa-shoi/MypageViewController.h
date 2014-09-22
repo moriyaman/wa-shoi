@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *recieveCountLabel;
 @property AVAudioPlayer *kamiosakoWasshoi;
 - (IBAction)say_Wasshoi;
+- (IBAction)shareLink;
+- (IBAction)logout;
+
 
 @end

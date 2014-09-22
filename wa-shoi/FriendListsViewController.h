@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import <YLImageView.h>
 
 @interface FriendListsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchDisplayDelegate,UISearchBarDelegate>
 
@@ -17,5 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *mailLists;
 @property (nonatomic, strong) NSMutableArray *searchResult;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+- (IBAction)shareLink;
 
 @end

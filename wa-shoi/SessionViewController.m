@@ -8,6 +8,7 @@
 
 #import "SessionViewController.h"
 #import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface SessionViewController ()
 

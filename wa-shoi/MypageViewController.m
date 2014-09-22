@@ -8,6 +8,8 @@
 
 #import "MypageViewController.h"
 #import <Parse/Parse.h>
+#import "LINEActivity.h"
+#import "MBCViewController.h"
 
 @interface MypageViewController ()
 
@@ -77,15 +79,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)shareLink {
+    
+    NSString *text  = @"わっしょいめっちゃ面白いよ！";
+    NSURL *url = [NSURL URLWithString:@"http://wasshoi.com"];
+    NSArray *activityItems = @[text, url];
+    LINEActivity *lineActivity = [[LINEActivity alloc] init];
+    
+    UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:activityItems
+                                                                               applicationActivities:@[lineActivity]];
+    [self presentViewController:activityView animated:YES completion:nil];
 }
-*/
+
+- (IBAction)logout {
+    [PFUser logOut];
+    MBCViewController *mbcViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"mbcView"];
+    [self presentViewController:mbcViewcontroller animated:YES completion:nil];
+}
 
 @end
