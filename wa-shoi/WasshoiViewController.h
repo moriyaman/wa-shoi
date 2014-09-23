@@ -17,4 +17,7 @@
 @property (nonatomic, strong) NSMutableArray *dataFriendUserLists;
 @property (weak, nonatomic) IBOutlet YLImageView *lodingImage;
 
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic) NSInteger *counter;
+
 @end

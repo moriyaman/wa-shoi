@@ -30,13 +30,6 @@
 {
     [super viewDidLoad];
     
-    //long press
-    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
-                                          initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 1.0;
-    lpgr.delegate = self;
-    [_wasshoiUserTableView addGestureRecognizer:lpgr];
-    
     // Do any additional setup after loading the view.
     _wasshoiUserTableView.delegate = self;
     _wasshoiUserTableView.dataSource = self;
@@ -60,6 +53,123 @@
 
 }
 
+- (void)incrementCounter:(UITableViewCell *)cell frame:(CGRect)backGaugeViewFrame increase:(float)increase{
+    self.counter++;
+    
+    int counter = (int)self.counter;
+    UIView *backGaugeView = (UIView *)[cell viewWithTag:4];
+    CGRect new = CGRectMake(backGaugeViewFrame.origin.x, backGaugeViewFrame.origin.y, counter * increase, backGaugeViewFrame.size.height);
+    backGaugeView.frame = new;
+    
+    if(counter * increase >= backGaugeViewFrame.size.width){
+        [self.timer invalidate];
+ 
+        
+        // 下記はあとでまとめたい
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        NSIndexPath *indexPath = [self.wasshoiUserTableView indexPathForCell:cell];
+        
+        //user&friend
+        PFUser * friendUser = self.dataFriendUserLists[(indexPath.row)/2];
+        PFUser * user = [PFUser currentUser];
+        
+        UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
+        userNameLabel.text = @"";
+        
+        CGRect cellBounds = cell.bounds;
+        [indicator setCenter:CGPointMake((cellBounds.size.width)/2, (cellBounds.size.height)/2)];
+        [cell addSubview:indicator];
+        [indicator startAnimating];
+        
+        //ブロックの確認
+        PFQuery *blockUserQuesry = [PFQuery queryWithClassName:@"BlockUser"];
+        [blockUserQuesry whereKey:@"friendUserObjectId" equalTo:user.objectId];
+        [blockUserQuesry whereKey:@"userObjectId" equalTo:friendUser.objectId];
+        [blockUserQuesry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if(!error){
+                if([objects count] > 0){
+                    [indicator removeFromSuperview];
+                    userNameLabel.text = [self.dataFriendUserLists[(indexPath.row)/2] objectForKey:@"user_name"];
+                    [self showAlert:@"ブロック登録されているのでわっしょいできません"];
+                }else{
+                    
+                    // 遅延処理
+                    double delayInSeconds =  1.0;
+                    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                        [indicator removeFromSuperview];
+                        userNameLabel.text = @"わっしょーーーい！";
+                    });
+                    
+                    // 遅延処理2
+                    double washoiDelayInSeconds =  2.0;
+                    dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
+                    dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
+                        
+                        NSString *notificationMsg = [[user objectForKey:@"user_name"] stringByAppendingString:@" わっしょーーーい！"];
+                        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              notificationMsg, @"alert",
+                                              @"kamiosakoWasshoiLong.m4a", @"sound",
+                                              nil];
+                        
+                        
+                        PFQuery *userQuery = [PFUser query];
+                        [userQuery getObjectWithId: friendUser.objectId];
+                        
+                        // Find devices associated with these users
+                        PFQuery *pushQuery = [PFInstallation query];
+                        [pushQuery whereKey:@"user" matchesQuery:userQuery];
+                        
+                        // Send push notification to query
+                        PFPush *push = [[PFPush alloc] init];
+                        [push setQuery:pushQuery]; // Set our Installation query
+                        [push setMessage:@"wasshoi"];
+                        [push setData:data];
+                        [push sendPushInBackground];
+                        
+                        // Date create
+                        PFObject *wasshoi = [PFObject objectWithClassName:@"Wasshoi"];
+                        PFRelation *userRelation = [wasshoi relationForKey:@"user"];
+                        [userRelation addObject:user];
+                        PFRelation *friendRelation = [wasshoi relationForKey:@"friendUser"];
+                        [friendRelation addObject:friendUser];
+                        wasshoi[@"userObjectId"] = user.objectId;
+                        wasshoi[@"friendUserObjectId"] = friendUser.objectId;
+                        
+                        [wasshoi saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (!succeeded) {
+                                [self showAlert:@"わっしょいに失敗しました"];
+                            } else {
+                                NSLog(@"成功");
+                            }
+                        }];
+                        
+                        //最後に名前を戻す
+                        userNameLabel.text = userNameLabel.text;
+                        backGaugeView.frame = CGRectMake(backGaugeViewFrame.origin.x, backGaugeViewFrame.origin.y, 0, backGaugeViewFrame.size.height);
+                    });
+                }
+            }
+        }];
+        
+        
+        // 動きの部分
+        NSIndexPath *topRow = [NSIndexPath indexPathForRow:0 inSection:0];
+        NSIndexPath *topNextRow = [NSIndexPath indexPathForRow:1 inSection:0];
+        
+        NSIndexPath *clickNextPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
+        
+        [self.dataFriendUserLists removeObjectAtIndex:(indexPath.row)/2];
+        [self.dataFriendUserLists insertObject:friendUser atIndex:topRow.row];
+        
+        [_wasshoiUserTableView beginUpdates];
+        [_wasshoiUserTableView moveRowAtIndexPath:indexPath toIndexPath:topRow];
+        [_wasshoiUserTableView moveRowAtIndexPath:clickNextPath toIndexPath:topNextRow];
+        [_wasshoiUserTableView endUpdates];
+    }
+}
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -72,22 +182,51 @@
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
+
+    SWTableViewCell *cell = (SWTableViewCell *)gestureRecognizer.view;
+    UIView *backGaugeView = (UIView *)[cell viewWithTag:4];
+    CGRect cellBounds = cell.bounds;
+    CGRect backGaugeViewFrame = cell.frame;
+    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
+    float increase = cellBounds.size.width/2000;
+    nameLabel.text = @"ろんぐ わっしょい！";
+
+    NSIndexPath *indexPath = [self.wasshoiUserTableView indexPathForCell:cell];
+    
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        CGPoint p = [gestureRecognizer locationInView:self.wasshoiUserTableView];
-        NSIndexPath *indexPath = [self.wasshoiUserTableView indexPathForRowAtPoint:p];
-        if (indexPath == nil) {
-            NSLog(@"long press on table view but not on a row");
-        } else {
-            UITableViewCell *cell = [self.wasshoiUserTableView cellForRowAtIndexPath:indexPath];
-            if (cell.isHighlighted) {
-                SystemSoundID hirai_long_wasshoi_scoud;
-                NSString *path = [[NSBundle mainBundle] pathForResource:@"kamiosakoWasshoi" ofType:@"m4a"];
-                NSURL *url = [NSURL fileURLWithPath:path];
-                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hirai_long_wasshoi_scoud);
-                AudioServicesPlaySystemSound(hirai_long_wasshoi_scoud);
-            }
+        self.counter = 0;
+        
+        SEL selector = @selector(incrementCounter:frame:increase:);
+        NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:selector];
+        if (signature){
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+            [invocation setSelector:selector];
+            [invocation setTarget:self];
+            [invocation setArgument:&cell atIndex:2];
+            [invocation setArgument:&backGaugeViewFrame atIndex:3];
+            [invocation setArgument:&increase atIndex:4];
+            [invocation invoke];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:0.01f invocation:invocation repeats: YES];
         }
     }
+    
+    if ( gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        [self.timer invalidate];
+        int counter = (int)self.counter;
+        if(counter*increase < backGaugeViewFrame.size.width){
+            nameLabel.text = @"キャンセル";
+            double delayInSeconds =  0.5f;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                nameLabel.text = [self.dataFriendUserLists[(indexPath.row)/2] objectForKey:@"user_name"];
+                backGaugeView.frame = CGRectMake(backGaugeViewFrame.origin.x, backGaugeViewFrame.origin.y, 0, backGaugeViewFrame.size.height);
+            });
+        }
+        
+        
+    }
+
+
 }
 
 
@@ -199,11 +338,23 @@
             NSString *userName = [self.dataFriendUserLists[(indexPath.row)/2] objectForKey:@"user_name"];
             UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
             userNameLabel.text = userName;
+            
+            //long press
+            UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                                  initWithTarget:self action:@selector(handleLongPress:)];
+            lpgr.minimumPressDuration = 0.2f;
+            lpgr.delegate = self;
+            [cell addGestureRecognizer:lpgr];
+            
         }else{
             UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
             UIView *backView = [cell viewWithTag:2];
+            UIView *backguageView = [cell viewWithTag:4];
+            backguageView.frame = backView.frame;
             userNameLabel.text = nil;
             backView.backgroundColor = [UIColor clearColor];
+            backguageView.backgroundColor = [UIColor clearColor];
+
         }
         UIView *plusView = [cell viewWithTag:3];
         [plusView removeFromSuperview];
@@ -271,7 +422,7 @@
                     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
                     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                         [indicator removeFromSuperview];
-                        userNameLabel.text = @"わっしょーい！";
+                        userNameLabel.text = @"わっしょい！";
                     });
                     
                     // 遅延処理2
@@ -285,6 +436,7 @@
                                               @"kamiosakoWasshoi.m4a", @"sound",
                                               nil];
                         
+                        NSLog(@"aaaaaaaaa: %@", friendUser.objectId);
                         
                         PFQuery *userQuery = [PFUser query];
                         [userQuery getObjectWithId: friendUser.objectId];
@@ -333,6 +485,9 @@
         NSIndexPath *topNextRow = [NSIndexPath indexPathForRow:1 inSection:0];
         
         NSIndexPath *clickNextPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
+        
+        [self.dataFriendUserLists removeObjectAtIndex:(indexPath.row)/2];
+        [self.dataFriendUserLists insertObject:friendUser atIndex:topRow.row];
         
         [_wasshoiUserTableView beginUpdates];
         [_wasshoiUserTableView moveRowAtIndexPath:indexPath toIndexPath:topRow];

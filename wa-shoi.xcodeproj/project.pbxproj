@@ -48,6 +48,7 @@
 		029CD61519B6104A00588416 /* FriendListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 029CD61419B6104A00588416 /* FriendListsViewController.m */; };
 		029CD61719B6128400588416 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029CD61619B6128400588416 /* AddressBook.framework */; };
 		029CD61919B6134100588416 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029CD61819B6134100588416 /* AddressBookUI.framework */; };
+		02A04DAD19D15EB6004F02C6 /* kamiosakoWasshoiLong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 02A04DAC19D15EB6004F02C6 /* kamiosakoWasshoiLong.m4a */; };
 		02D6BFA219AB54770022D839 /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D6BFA119AB54770022D839 /* SessionViewController.m */; };
 		02E1A5A919CC18510074E9A7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E1A5A819CC18510074E9A7 /* Social.framework */; };
 		02E1A5AD19CC188B0074E9A7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E1A5AC19CC188B0074E9A7 /* Accounts.framework */; };
@@ -132,6 +133,7 @@
 		029CD61419B6104A00588416 /* FriendListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListsViewController.m; sourceTree = "<group>"; };
 		029CD61619B6128400588416 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		029CD61819B6134100588416 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		02A04DAC19D15EB6004F02C6 /* kamiosakoWasshoiLong.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = kamiosakoWasshoiLong.m4a; sourceTree = "<group>"; };
 		02D6BFA019AB54770022D839 /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
 		02D6BFA119AB54770022D839 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
 		02E1A5A819CC18510074E9A7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -284,6 +286,7 @@
 				02E1A5B019CC91970074E9A7 /* plus.png */,
 				731FA3A419C57C360077629F /* facebook2.png */,
 				731FA39C19C574200077629F /* gear.png */,
+				02A04DAC19D15EB6004F02C6 /* kamiosakoWasshoiLong.m4a */,
 				73DAA89519AADAD200A024FF /* start.jpg */,
 				73DAA88519AAD91300A024FF /* icon2.png */,
 				73DAA88319AAD90A00A024FF /* icon1.png */,
@@ -461,6 +464,7 @@
 				024C830019AAE4760041AE0C /* start.jpg in Resources */,
 				024C830119AAE4760041AE0C /* icon2.png in Resources */,
 				02E1A5B119CC91970074E9A7 /* plus.png in Resources */,
+				02A04DAD19D15EB6004F02C6 /* kamiosakoWasshoiLong.m4a in Resources */,
 				732E35F619AD834F001C73CC /* IntroPage2.xib in Resources */,
 				024C830219AAE4760041AE0C /* icon1.png in Resources */,
 				731FA39D19C574200077629F /* gear.png in Resources */,
