@@ -342,7 +342,7 @@
             //long press
             UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                                   initWithTarget:self action:@selector(handleLongPress:)];
-            lpgr.minimumPressDuration = 0.2f;
+            lpgr.minimumPressDuration = 0.1f;
             lpgr.delegate = self;
             [cell addGestureRecognizer:lpgr];
             
