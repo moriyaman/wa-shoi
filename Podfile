@@ -9,3 +9,4 @@ pod 'SWTableViewCell'
 #pod 'Parse-iOS-SDK'
 #pod 'Facebook-iOS-SDK'
 pod 'ParseFacebookUtils'
+pod 'SVProgressHUD', :head

@@ -9,6 +9,7 @@
 #import "FriendListsViewController.h"
 #import <Parse/Parse.h>
 #import "LINEActivity.h"
+#import "AlertView.h"
 
 @interface FriendListsViewController ()
 
@@ -63,7 +64,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", searchText];
     // NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", searchText];
 
-    // self.searchResult = [NSMutableArray arrayWithArray: [self.tableData filteredArrayUsingPredicate:resultPredicate]];
+    //self.searchResult = [NSMutableArray arrayWithArray: [self.tableData filteredArrayUsingPredicate:resultPredicate]];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -108,15 +109,22 @@
 
     for (int i = 0; i < nPeople; i++)
     {
-        ABRecordRef person = CFArrayGetValueAtIndex(allPeople, i);
-        ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
-        NSString *email;
-        if (ABMultiValueGetCount(emails) > 0) {
-            email = (__bridge NSString *)ABMultiValueCopyValueAtIndex(emails, 0);
-            [_mailLists addObject:email];
+        @try {
+            ABRecordRef person = CFArrayGetValueAtIndex(allPeople, i);
+            ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
+            
+            NSString *email;
+            if (ABMultiValueGetCount(emails) > 0) {
+                email = (__bridge NSString *)ABMultiValueCopyValueAtIndex(emails, 0);
+                [_mailLists addObject:email];
+            }
         }
-        // NSString *mail = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonEmailProperty));
+        @catch (NSException *exception) {
+            NSLog(@"error");
+        }
+        @finally {
 
+        }
     }
 
     PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friend"];
@@ -162,7 +170,7 @@
     }
 
     NSString *userName = [self.dataUserLists[indexPath.row] objectForKey:@"user_name"];
-    UILabel *userNameLabel = [cell viewWithTag:1];
+    UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
     userNameLabel.text = userName;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -171,11 +179,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
+    NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     UITableViewCell *cell = [_userFriendsTableView cellForRowAtIndexPath:indexPath];
     
-    UILabel *userNameLabel = [cell viewWithTag:1];
+    UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
     NSString *userName = userNameLabel.text;
     
     CGRect cellBounds = cell.bounds;
@@ -184,74 +193,72 @@
     [indicator startAnimating];
     userNameLabel.text = @"";
     
-    
     double delayInSeconds =  1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-
+        
         PFUser * friendUser = self.dataUserLists[indexPath.row];
         PFUser * user = [PFUser currentUser];
         
-        PFObject *friend = [PFObject objectWithClassName:@"Friend"];
-        PFRelation *userRelation = [friend relationForKey:@"user"];
-        [userRelation addObject:user];
-        
-        PFRelation *friendRelation = [friend relationForKey:@"friendUser"];
-        [friendRelation addObject:friendUser];
-        friend[@"userObjectId"] = user.objectId;
-        friend[@"friendUserObjectId"] = friendUser.objectId;
-        [friend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!succeeded) {
-                [self showAlert:@"友達の登録に失敗しました。再度起動し直して実行してください"];
-            } else {
-                NSLog(@"成功");
+        //既に友達登録されていないか確認
+        PFQuery *friendQuesry = [PFQuery queryWithClassName:@"Friend"];
+        [friendQuesry whereKey:@"userObjectId" equalTo:user.objectId];
+        [friendQuesry whereKey:@"friendUserObjectId" equalTo:friendUser.objectId];
+        [friendQuesry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if(!error){
+                if([objects count] > 0){
+                    [self showAlert:@"既に友達登録が完了しています。"];
+                }else{
+                    PFObject *friend = [PFObject objectWithClassName:@"Friend"];
+                    PFRelation *userRelation = [friend relationForKey:@"user"];
+                    [userRelation addObject:user];
+                    
+                    PFRelation *friendRelation = [friend relationForKey:@"friendUser"];
+                    [friendRelation addObject:friendUser];
+                    friend[@"userObjectId"] = user.objectId;
+                    friend[@"friendUserObjectId"] = friendUser.objectId;
+                    [friend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (!succeeded) {
+                            [self showAlert:@"友達の登録に失敗しました。再度起動し直して実行してください"];
+                            [indicator removeFromSuperview];
+                            userNameLabel.text = userName;
+                        } else {
+                            [indicator removeFromSuperview];
+                            userNameLabel.text = @"追加完了";
+                            
+                            double washoiDelayInSeconds =  1.0;
+                            dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
+                            dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
+                                NSIndexPath *cellIndexPath = [self.userFriendsTableView indexPathForCell:cell];
+                                [self.dataUserLists removeObjectAtIndex:cellIndexPath.row];
+                                [_userFriendsTableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                                
+                            });
+                            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+                        }
+                    }];
+                }
             }
         }];
-        
-        [indicator removeFromSuperview];
-        userNameLabel.text = @"追加完了";
-    });
-
-    // 遅延処理2
-    double washoiDelayInSeconds =  2.0;
-    dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
-    dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
-        NSIndexPath *cellIndexPath = [self.userFriendsTableView indexPathForCell:cell];
-        [self.dataUserLists removeObjectAtIndex:cellIndexPath.row];
-        [_userFriendsTableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
     });
     
 }
 
 - (void)showAlert:(NSString*)text
 {
-    Class class = NSClassFromString(@"UIAlertController");
-    //if(class){
-        // UIAlertControllerを使ってアラートを表示
-    //    UIAlertController *alert = nil;
-    //    alert = [UIAlertController alertControllerWithTitle:@"Title"
-    //                                                message:text
-    //                                         preferredStyle:UIAlertControllerStyleAlert];
-    //    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
-    //                                              style:UIAlertActionStyleDefault
-    //                                            handler:nil]];
-    //    [self presentViewController:alert animated:YES completion:nil];
-    //}else{
-        // UIAlertViewを使ってアラートを表示
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                                        message:text
-                                                       delegate:nil
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-    //}
+    
+    AlertView *alertView = [AlertView new];
+    [alertView setTitle:@"Error"];
+    [alertView setOtherButtonTitle:@"OK"];
+    [alertView setText:text];
+    [alertView show];
 }
 
 - (IBAction)shareLink {
 
-    NSString *text  = @"わっしょいめっちゃ面白いよ！";
-    NSURL *url = [NSURL URLWithString:@"http://wasshoi.com"];
-    NSArray *activityItems = @[text, url];
+    NSString *text  = @"わっしょいを皆に送って盛り上げよう Appstoreでわっしょいで検索してみて！";
+    NSArray *activityItems = @[text];
     LINEActivity *lineActivity = [[LINEActivity alloc] init];
 
     UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:activityItems

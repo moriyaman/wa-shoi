@@ -11,6 +11,7 @@
 #import "LINEActivity.h"
 #import "MBCViewController.h"
 #import "ScrollViewController.h"
+#import "SVProgressHUD.h"
 
 @interface MypageViewController ()
 
@@ -123,40 +124,52 @@
                 settingNameLabel.text = @"ログアウト";
                 break;
         }
-    
+        
+        UIView *customColorView = [[UIView alloc] init];
+        customColorView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.90];
+        cell.selectedBackgroundView =  customColorView;
     }else{
-        UIView *backView = [cell viewWithTag:2];
+        UIView *backView = [cell viewWithTag:3];
         settingNameLabel.text = nil;
         backView.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.row/2) {
-        case 0:
-            [self.kamiosakoWasshoi play];
-            break;
-        case 1:
-            [self shareLink];
-            break;
-        case 2:
-            [self modalPrivacyPolicy];
-            break;
-        case 3:
-            [self modalTermsView];
-            break;
-        case 4:
-            [self logout];
-            break;
-        default:
-            break;
+    if(indexPath.row % 2 == 0){
+        
+        switch (indexPath.row/2) {
+            case 0:
+                [self.kamiosakoWasshoi play];
+                break;
+            case 1:
+                [self shareLink];
+                break;
+            case 2:
+                [self modalPrivacyPolicy];
+                break;
+            case 3:
+                [self modalTermsView];
+                break;
+            case 4:
+                [self logout];
+                break;
+            default:
+                break;
+        }
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        //UIView *backView = [cell viewWithTag:3];
+        //backView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.90];
     }
-       return;
+    return;
 }
 
 - (void)say_Wasshoi {
@@ -180,8 +193,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
 - (void)shareLink {
     
     NSString *text  = @"わっしょいめっちゃ面白いよ！";
@@ -194,10 +205,30 @@
     [self presentViewController:activityView animated:YES completion:nil];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIView *backView = [cell viewWithTag:3];
+    if(indexPath.row % 2 == 0){
+        backView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.90];
+    }else{
+        backView.backgroundColor = [UIColor clearColor];
+    }
+}
+
 - (void)logout {
+    [SVProgressHUD setFont: [UIFont fontWithName:@"ヒラギノ明朝 ProN W3" size:20]];
+    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"ログアウト中"];
     [PFUser logOut];
-    MBCViewController *mbcViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"mbcView"];
-    [self presentViewController:mbcViewcontroller animated:YES completion:nil];
+    // 遅延処理
+    double delayInSeconds =  2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [SVProgressHUD showSuccessWithStatus:@"ログアウト完了"];
+        [SVProgressHUD popActivity];
+
+        MBCViewController *mbcViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"mbcView"];
+        [self presentViewController:mbcViewcontroller animated:YES completion:nil];
+    });
 }
 
 @end

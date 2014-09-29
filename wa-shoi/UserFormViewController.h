@@ -9,17 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface UserFormViewController : UIViewController
-<UITextFieldDelegate, UIGestureRecognizerDelegate>
-
-- (IBAction)closeuserNameTextFieldKeybord:(id)sender;
-- (IBAction)closeuserPasswordTextFieldKeybord:(id)sender;
-- (IBAction)closeuserMailTextFieldKeybord:(id)sender;
+<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate, UIGestureRecognizerDelegate>
 
 - (IBAction)userFormSubmit:(id)sender;
+- (IBAction)facebookButtonTapped:(id)sender;
 
-@property IBOutlet UITextField * userNameTextField;
-@property IBOutlet UITextField * userPasswordTextField;
-@property IBOutlet UITextField * userMailTextField;
+@property IBOutlet UITableView * userFormTableView;
+@property (strong, nonatomic) NSMutableDictionary *userFormLabelAndText;
 
 
 @end

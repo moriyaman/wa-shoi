@@ -9,14 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
+<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate, UIGestureRecognizerDelegate>
 
-@property IBOutlet UITextField * userPasswordTextField;
-@property IBOutlet UITextField * userNameTextField;
-
-- (IBAction)closeuserPasswordTextFieldKeybord:(id)sender;
-- (IBAction)closeuserNameTextFieldKeybord:(id)sender;
 - (IBAction)loginSubmit:(id)sender;
 - (IBAction)facebookButtonTapped:(id)sender;
 
+@property IBOutlet UITableView * userFormTableView;
+@property (strong, nonatomic) NSMutableDictionary *userFormLabelAndText;
 
 @end

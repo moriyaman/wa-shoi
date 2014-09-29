@@ -9,6 +9,7 @@
 #import "MBCViewController.h"
 #import "WasshoiViewController.h"
 #import <Parse/Parse.h>
+#import "SVProgressHUD.h"
 
 @interface MBCViewController ()
 
@@ -51,8 +52,18 @@
 
 - (void)afterLogined
 {
-    WasshoiViewController *wasshoiViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"wasshoiView"];
-    [self presentViewController:wasshoiViewcontroller animated:YES completion:nil];
+    [SVProgressHUD setFont: [UIFont fontWithName:@"ヒラギノ明朝 ProN W3" size:20]];
+    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"ログイン中"];
+    // 遅延処理
+    double delayInSeconds =  1.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [SVProgressHUD dismiss];
+        WasshoiViewController *wasshoiViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"wasshoiView"];
+        [self presentViewController:wasshoiViewcontroller animated:YES completion:nil];
+    });
+
     
 }
 
