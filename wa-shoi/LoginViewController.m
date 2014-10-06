@@ -7,7 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "FriendListsViewController.h"
+#import "WasshoiViewController.h"
+#import "userNameViewController.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import "SVProgressHUD.h"
@@ -51,12 +52,23 @@
 {
     CGSize kbSize = [[[sender userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     NSTimeInterval duration = [[[sender userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    int height;
+    if(screenSize.width == 320.0 && screenSize.height == 480.0){
+        height = 40;
+    }else{
+        height = 5;
+    }
     [UIView animateWithDuration:duration animations:^{
-        UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, (kbSize.height-100), 0);
+        UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, (kbSize.height-_userFormTableView.frame.origin.y/2-height), 0);
         [self.userFormTableView setContentInset:edgeInsets];
         [self.userFormTableView setScrollIndicatorInsets:edgeInsets];
     }];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)keyboardHide:(NSNotification *)sender
@@ -83,7 +95,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row % 2 == 1){
-        return 20;
+        return 10;
     }else{
         return 60;
     }
@@ -106,14 +118,15 @@
         switch(indexPath.row/2){
             case 0:
                 textField.placeholder = @"ユーザー名";
+                textField.tag = 0;
                 break;
             case 1:
                 textField.placeholder = @"パスワード";
+                textField.tag = 1;
                 [textField setSecureTextEntry:YES];
                 break;
         }
         textField.delegate = self;
-        textField.tag = (indexPath.row)+5;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }else{
@@ -133,10 +146,10 @@
     
     NSString *fieldName;
     switch ((long)textField.tag) {
-        case 5:
+        case 0:
             fieldName = @"userName";
             break;
-        case 7:
+        case 1:
             fieldName = @"password";
             break;
 
@@ -144,7 +157,6 @@
     
     [_userFormLabelAndText setObject:textField.text forKey:fieldName];
 }
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -164,38 +176,43 @@
     NSString *userName = [_userFormLabelAndText objectForKey:@"userName"];
     NSString *password = [_userFormLabelAndText objectForKey:@"password"];
     
+    [SVProgressHUD setFont: [UIFont fontWithName:@"ヒラギノ明朝 ProN W3" size:20]];
+    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"ログイン中"];
+    
     [PFUser logInWithUsernameInBackground:userName
                                  password:password
                                     block:^(PFUser *user, NSError *error) {
                                         if(user){
-                                            
-                                            [SVProgressHUD setFont: [UIFont fontWithName:@"ヒラギノ明朝 ProN W3" size:20]];
-                                            [SVProgressHUD show];
-                                            [SVProgressHUD showWithStatus:@"ログイン中"];
                                             
                                             // 遅延処理
                                             double delayInSeconds =  1.0;
                                             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
                                             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                                                 [SVProgressHUD dismiss];
-                                                FriendListsViewController *friendListsViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
-                                                [self presentViewController:friendListsViewcontroller animated:YES completion:nil];
+                                                WasshoiViewController *wasshoiViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"wasshoiView"];
+                                                [self presentViewController:wasshoiViewcontroller animated:YES completion:nil];
                                             });
 
                                             // ユーザの登録後setobject
                                             PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-                                            [currentInstallation setObject:[PFUser currentUser] forKey:@"user"];
+                                            currentInstallation[@"user"] = [PFUser currentUser];
                                             [currentInstallation saveInBackground];
                                             
                                         }else{
+                                             [SVProgressHUD dismiss];
                                             [self showAlert:@"ユーザー名かパスワードが間違っています。"];
                                         }
                                     }
      ];
 }
 
+
 - (IBAction)facebookButtonTapped:(id)sender
 {
+    [SVProgressHUD setFont: [UIFont fontWithName:@"ヒラギノ明朝 ProN W3" size:20]];
+    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"Facebookと通信中"];
     // パーミッション
     NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location", @"email", @"read_friendlists"];
     FBSession *oursession = [[FBSession alloc] initWithPermissions:permissionsArray];
@@ -210,22 +227,20 @@
         } else {
             [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
+                    [SVProgressHUD dismiss];
                     NSString *last_name = [result objectForKey:@"last_name"];
                     NSString *user_name = [last_name stringByAppendingString:[result objectForKey:@"first_name"]];
                     
                     [[PFUser currentUser] setObject:[result objectForKey:@"email"]
                                              forKey:@"email"];
-                    [[PFUser currentUser] setObject:user_name
-                                             forKey:@"user_name"];
                     [[PFUser currentUser] setObject:[result objectForKey:@"id"]
                                              forKey:@"uid"];
                     [[PFUser currentUser] saveInBackground];
                     
                     // ユーザの登録後setobject
                     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-                    [currentInstallation setObject:[PFUser currentUser] forKey:@"user"];
+                    currentInstallation[@"user"] = [PFUser currentUser];
                     [currentInstallation saveInBackground];
-
                 }
             }];
             
@@ -238,8 +253,13 @@
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 [SVProgressHUD dismiss];
-                FriendListsViewController *friendListsViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
-                [self presentViewController:friendListsViewcontroller animated:YES completion:nil];
+                if([[PFUser currentUser] objectForKey:@"user_name"] == nil){
+                    userNameViewController *userNameViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"userNameForm"];
+                    [self presentViewController:userNameViewcontroller animated:YES completion:nil];
+                }else{
+                    WasshoiViewController *wasshoiViewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"wasshoiView"];
+                    [self presentViewController:wasshoiViewcontroller animated:YES completion:nil];
+                }
             });
         }
         

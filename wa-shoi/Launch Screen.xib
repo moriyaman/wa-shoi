@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launchImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="IrC-IK-oWd">
+                    <rect key="frame" x="157" y="74" width="166" height="331"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="IrC-IK-oWd" secondAttribute="height" multiplier="1:2" id="Rse-Zc-cPv"/>
+                        <constraint firstAttribute="width" secondItem="IrC-IK-oWd" secondAttribute="height" multiplier="166:331" id="xKU-aP-SL2"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Rse-Zc-cPv"/>
+                            <exclude reference="xKU-aP-SL2"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Yk-nK-F7w"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2oC-AW-rDg"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="B8c-SX-lgw"/>
+                <constraint firstAttribute="trailing" secondItem="IrC-IK-oWd" secondAttribute="trailing" id="CXl-RZ-0k5"/>
+                <constraint firstAttribute="trailing" secondItem="IrC-IK-oWd" secondAttribute="trailing" id="CgZ-WO-yzr"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="I8A-Sr-Dgt"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Oud-XB-GVn"/>
+                <constraint firstAttribute="trailing" secondItem="IrC-IK-oWd" secondAttribute="trailing" id="PTw-pi-bNw"/>
+                <constraint firstAttribute="trailing" secondItem="IrC-IK-oWd" secondAttribute="trailing" id="bS8-fx-pDc"/>
+                <constraint firstAttribute="trailing" secondItem="IrC-IK-oWd" secondAttribute="trailing" id="cgW-Ki-4sG"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gjR-Li-Q80"/>
+                <constraint firstAttribute="trailing" secondItem="IrC-IK-oWd" secondAttribute="trailing" id="jNb-LC-Tn0"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="n2h-pI-48D"/>
+                <constraint firstAttribute="trailing" secondItem="IrC-IK-oWd" secondAttribute="trailing" id="pnC-8X-Tq7"/>
+                <constraint firstAttribute="bottom" secondItem="IrC-IK-oWd" secondAttribute="bottom" id="sBo-Ls-C3I"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="y9V-Sj-ndw"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yvh-aU-9NE"/>
+                <constraint firstItem="IrC-IK-oWd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zTd-EW-exM"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2oC-AW-rDg"/>
+                    <exclude reference="B8c-SX-lgw"/>
+                    <exclude reference="CgZ-WO-yzr"/>
+                    <exclude reference="I8A-Sr-Dgt"/>
+                    <exclude reference="Oud-XB-GVn"/>
+                    <exclude reference="PTw-pi-bNw"/>
+                    <exclude reference="bS8-fx-pDc"/>
+                    <exclude reference="cgW-Ki-4sG"/>
+                    <exclude reference="jNb-LC-Tn0"/>
+                    <exclude reference="n2h-pI-48D"/>
+                    <exclude reference="pnC-8X-Tq7"/>
+                    <exclude reference="y9V-Sj-ndw"/>
+                    <exclude reference="yvh-aU-9NE"/>
+                    <exclude reference="zTd-EW-exM"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="441.25" y="445"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="launchImage.png" width="750" height="1334"/>
+    </resources>
+</document>

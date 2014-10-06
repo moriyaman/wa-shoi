@@ -31,6 +31,7 @@
     
 }
 
+
 - (void)viewDidAppear:(BOOL)animated
 {
     if([PFUser currentUser].sessionToken != nil && [[PFUser currentUser].sessionToken length] > 0){
@@ -55,6 +56,11 @@
     [SVProgressHUD setFont: [UIFont fontWithName:@"ヒラギノ明朝 ProN W3" size:20]];
     [SVProgressHUD show];
     [SVProgressHUD showWithStatus:@"ログイン中"];
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    currentInstallation[@"user"] = [PFUser currentUser];
+    [currentInstallation saveInBackground];
+    
     // 遅延処理
     double delayInSeconds =  1.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));

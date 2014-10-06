@@ -12,8 +12,8 @@
 @interface MypageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *sendCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *recieveCountLabel;
 @property IBOutlet UITableView * myPageTableView;
+@property (nonatomic, assign) NSInteger wasshoiSendCnt;
 
 @property AVAudioPlayer *kamiosakoWasshoi;
 

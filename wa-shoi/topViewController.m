@@ -1,33 +1,22 @@
 //
-//  ScrollViewController.m
+//  topViewController.m
 //  wa-shoi
 //
-//  Created by Yuri Hirane on 2014/09/14.
+//  Created by Yuki Moriyama on 2014/10/04.
 //  Copyright (c) 2014年 yuki.moriyama. All rights reserved.
 //
 
-#import "ScrollViewController.h"
+#import "topViewController.h"
 
-@interface ScrollViewController ()
+@interface topViewController ()
 
 @end
 
-@implementation ScrollViewController
+@implementation topViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.scroll setContentSize:self.scrollChild.bounds.size];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -35,20 +24,16 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 /*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }

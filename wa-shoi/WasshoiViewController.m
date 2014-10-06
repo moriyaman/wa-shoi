@@ -52,6 +52,25 @@
     }];
 }
 
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell scrollingToState:(SWCellState)state
+{
+
+    NSIndexPath *indexPath = [self.wasshoiUserTableView indexPathForCell:cell];
+    PFUser *user = [PFUser currentUser];
+    PFUser * friendUser = self.dataFriendUserLists[(indexPath.row)/2];
+    
+    PFQuery *blockUserQuesry = [PFQuery queryWithClassName:@"BlockUser"];
+    [blockUserQuesry whereKey:@"friendUserObjectId" equalTo:friendUser.objectId];
+    [blockUserQuesry whereKey:@"userObjectId" equalTo:user.objectId];
+    [blockUserQuesry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if(!error){
+            if([objects count] > 0){
+              cell.rightUtilityButtons = [self rightButtonsForBlocked];
+            }
+        }
+    }];
+}
+
 - (void)incrementCounter:(UITableViewCell *)cell frame:(CGRect)backGaugeViewFrame increase:(float)increase{
     self.counter++;
     
@@ -151,14 +170,13 @@
                             [wasshoi saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                 if (!succeeded) {
                                     [self showAlert:@"わっしょいに失敗しました"];
-                                } else {
-                                    NSLog(@"成功");
                                 }
                             }];
                             
                             //最後に名前を戻す
                             userNameLabel.text = [self.dataFriendUserLists[(topRow.row)/2] objectForKey:@"user_name"];
                             backGaugeView.frame = CGRectMake(backGaugeViewFrame.origin.x, backGaugeViewFrame.origin.y, 0, backGaugeViewFrame.size.height);
+                            [self createFriendUser:user friendUser:friendUser];
                         });
                     });
                 }
@@ -176,6 +194,11 @@
     }else{
         return 80;
     }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -236,54 +259,90 @@
     NSIndexPath *cellIndexPath = [self.wasshoiUserTableView indexPathForCell:cell];
     PFUser *friendUser = self.dataFriendUserLists[cellIndexPath.row/2];
     PFUser *user = [PFUser currentUser];
-
-    PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friend"];
-    [friendQuery whereKey:@"userObjectId" equalTo:user.objectId];
-    [friendQuery whereKey:@"friendUserObjectId" equalTo:friendUser.objectId];
-    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        [objects[0] deleteInBackground];
-    }];
-
     
     if(index == 0){
         
-        PFObject *blockUser = [PFObject objectWithClassName:@"BlockUser"];
-        PFRelation *userRelation = [blockUser relationForKey:@"user"];
-        [userRelation addObject:user];
         
-        PFRelation *friendRelation = [blockUser relationForKey:@"friendUser"];
-        [friendRelation addObject:friendUser];
-        
-        blockUser[@"userObjectId"] = user.objectId;
-        blockUser[@"friendUserObjectId"] = friendUser.objectId;
-        
-        [blockUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!succeeded) {
-                [self showAlert:@"ブロックの登録に失敗しました。再度起動し直して実行してください"];
-                
-                
-            }else{
-                
-                [cell hideUtilityButtonsAnimated:YES];
-                UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
-                UIView *backgroudView = (UILabel *)[cell viewWithTag:2];
-                userNameLabel.text = @"ブロック！";
-                backgroudView.backgroundColor = [UIColor colorWithRed:0.235 green:0.702 blue:0.443 alpha:1.0];
-                
-                double washoiDelayInSeconds =  1.0;
-                dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
-                dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
-                    [self.dataFriendUserLists removeObjectAtIndex:(cellIndexPath.row)/2];
+        PFQuery *blockUserQuesry = [PFQuery queryWithClassName:@"BlockUser"];
+        [blockUserQuesry whereKey:@"friendUserObjectId" equalTo:friendUser.objectId];
+        [blockUserQuesry whereKey:@"userObjectId" equalTo:user.objectId];
+        [blockUserQuesry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if(!error){
+                if([objects count] > 0){
                     
-                    NSIndexPath *newPath = [NSIndexPath indexPathForRow:cellIndexPath.row+1 inSection:cellIndexPath.section];
-                    [_wasshoiUserTableView deleteRowsAtIndexPaths:@[cellIndexPath, newPath] withRowAnimation:UITableViewRowAnimationFade];
+                    PFQuery *blovkUserQuery = [PFQuery queryWithClassName:@"BlockUser"];
+                    [blovkUserQuery whereKey:@"userObjectId" equalTo:user.objectId];
+                    [blovkUserQuery whereKey:@"friendUserObjectId" equalTo:friendUser.objectId];
+                    [blovkUserQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+                        if(error == nil){
+                            UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
+                            UIView *backgroudView = (UILabel *)[cell viewWithTag:2];
+                            [objects[0] deleteInBackground];
+                            
+                            userNameLabel.text = @"ブロック解除！";
+                            cell.rightUtilityButtons = [self rightButtons];
+                            [cell hideUtilityButtonsAnimated:YES];
+                            
+                            backgroudView.backgroundColor = [UIColor colorWithRed:0.93 green:0.76 blue:0.20 alpha:1.0];
+                            
+                            double washoiDelayInSeconds =  1.0;
+                            dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
+                            dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
+                                backgroudView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.90];
+                                userNameLabel.text = [friendUser objectForKey:@"user_name"];
+                            });
+                            
+                        }else{
+                            [self showAlert:@"ブロックの解除に失敗しました。再度起動し直して実行してください"];
+                        }
+                        
+                    }];
                     
-                });
+                }else{
+                    
+                    PFObject *blockUser = [PFObject objectWithClassName:@"BlockUser"];
+                    PFRelation *userRelation = [blockUser relationForKey:@"user"];
+                    [userRelation addObject:user];
+                    
+                    PFRelation *friendRelation = [blockUser relationForKey:@"friendUser"];
+                    [friendRelation addObject:friendUser];
+                    
+                    blockUser[@"userObjectId"] = user.objectId;
+                    blockUser[@"friendUserObjectId"] = friendUser.objectId;
+                    
+                    [blockUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (!succeeded) {
+                            [self showAlert:@"ブロックの登録に失敗しました。再度起動し直して実行してください"];
+                        }else{
+                            UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
+                            UIView *backgroudView = (UILabel *)[cell viewWithTag:2];
+                            userNameLabel.text = @"ブロック！";
+                            cell.rightUtilityButtons = [self rightButtonsForBlocked];
+                            [cell hideUtilityButtonsAnimated:YES];
+                            
+                            backgroudView.backgroundColor = [UIColor colorWithRed:0.235 green:0.702 blue:0.443 alpha:1.0];
+                            
+                            double washoiDelayInSeconds =  1.0;
+                            dispatch_time_t washoiPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(washoiDelayInSeconds * NSEC_PER_SEC));
+                            dispatch_after(washoiPopTime, dispatch_get_main_queue(), ^(void){
+                                backgroudView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.90];
+                                userNameLabel.text = [friendUser objectForKey:@"user_name"];
+                            });
+                        }
+                    }];
+
+                    
+                }
             }
         }];
-        // block
-        
     }else if (index == 1){
+        
+        PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friend"];
+        [friendQuery whereKey:@"userObjectId" equalTo:user.objectId];
+        [friendQuery whereKey:@"friendUserObjectId" equalTo:friendUser.objectId];
+        [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            [objects[0] deleteInBackground];
+        }];
 
         [self.dataFriendUserLists removeObjectAtIndex:(cellIndexPath.row)/2];
         
@@ -361,7 +420,9 @@
 
 - (NSArray *)rightButtons
 {
+    
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
                                                 title:@"ブロック"];
@@ -369,6 +430,21 @@
      [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
                                                 title:@"削除"];
     
+    return rightUtilityButtons;
+}
+
+
+- (NSArray *)rightButtonsForBlocked
+{
+    
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.93 green:0.76 blue:0.20 alpha:1.0f]
+                                                title:@"ブロック解除"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"削除"];
     return rightUtilityButtons;
 }
 
@@ -447,12 +523,11 @@
                             NSString *notificationMsg = [[user objectForKey:@"user_name"] stringByAppendingString:@" わっしょい！"];
                             NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
                                                   notificationMsg, @"alert",
-                                                  @"kamiosakoWasshoi.m4a", @"sound",
+                                                  @"kamiosakoWasshoiShort.m4a", @"sound",
                                                   nil];
                             
                             PFQuery *userQuery = [PFUser query];
                             [userQuery getObjectWithId: friendUser.objectId];
-                            
                             // Find devices associated with these users
                             PFQuery *pushQuery = [PFInstallation query];
                             [pushQuery whereKey:@"user" matchesQuery:userQuery];
@@ -476,20 +551,23 @@
                             [wasshoi saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                 if (!succeeded) {
                                     [self showAlert:@"わっしょいに失敗しました"];
-                                } else {
-                                    NSLog(@"成功");
                                 }
                             }];
                             
                             //最後に名前を戻す
                             userNameLabel.text = [self.dataFriendUserLists[(topRow.row)/2] objectForKey:@"user_name"];
                             //[self updateVisibleCells];
+                            
+                            [self createFriendUser:user friendUser:friendUser];
+                            
                         });
                     });
                 }
             }
         }];
     }
+    
+    
     return;
 }
 
@@ -518,12 +596,38 @@
         NSIndexPath *indexPath = [self.wasshoiUserTableView indexPathForCell:cell];
         if(currentPath != indexPath){
             if([self.dataFriendUserLists count] > (indexPath.row)/2){
-                NSLog(@"next:%ld", (indexPath.row)/2);
                 UILabel *userNameLabel = (UILabel *)[cell viewWithTag:1];
                 userNameLabel.text = [self.dataFriendUserLists[(indexPath.row)/2] objectForKey:@"user_name"];
             }
         }
     }
+}
+
+- (void)createFriendUser:(PFUser *)user friendUser:(PFUser *)friendUser {
+    
+    //既に友達登録されていないか確認
+    PFQuery *friendQuesry = [PFQuery queryWithClassName:@"Friend"];
+    [friendQuesry whereKey:@"userObjectId" equalTo:friendUser.objectId];
+    [friendQuesry whereKey:@"friendUserObjectId" equalTo:user.objectId];
+    [friendQuesry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if(!error){
+            if([objects count] > 0){
+                // 何もしない
+            }else{
+                PFObject *friend = [PFObject objectWithClassName:@"Friend"];
+                PFRelation *userRelation = [friend relationForKey:@"user"];
+                [userRelation addObject:user];
+                
+                PFRelation *friendRelation = [friend relationForKey:@"friendUser"];
+                [friendRelation addObject:friendUser];
+                friend[@"userObjectId"] = friendUser.objectId;
+                friend[@"friendUserObjectId"] = user.objectId;
+                [friend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    // 特に何もしない
+                }];
+            }
+        }
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath

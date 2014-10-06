@@ -20,13 +20,29 @@
     // Override point for customization after application launch.
     [Parse setApplicationId:@"9KDwbeuLlWPeOuT2Zl3rWepD2ZCQ5cHnwkgIFKfN" clientKey:@"caoxn0UqzMpo9s2pmgsfAWvcmZJlEgQeJFHIDU6H"];
     [PFFacebookUtils initializeFacebook];
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|
-     UIRemoteNotificationTypeBadge|
-     UIRemoteNotificationTypeSound];
+    //[application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|
+     //UIRemoteNotificationTypeBadge|
+     //UIRemoteNotificationTypeSound];
     
     // RLMRealm *realm = [RLMRealm defaultRealm];
 	// [realm beginWriteTransaction];
 	// [realm commitWriteTransaction];
+    
+    
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                        UIUserNotificationTypeBadge |
+                                                        UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                                 categories:nil];
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
+    } else {
+        // Register for Push Notifications before iOS 8
+        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                         UIRemoteNotificationTypeAlert |
+                                                         UIRemoteNotificationTypeSound)];
+    }
     
     return YES;
 }
@@ -75,9 +91,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
     
     // ユーザの登録後setobject
     [currentInstallation setDeviceTokenFromData:deviceToken];
-    currentInstallation.channels = @[@"global"];
     [currentInstallation saveInBackground];
-}
+ }
 
 
 - (void)application:(UIApplication *)application

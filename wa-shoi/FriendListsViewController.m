@@ -55,8 +55,14 @@
 
     }else{
         // ユーザーがアドレス帳へのアクセスを以前に拒否した場合
-        [self showAlert:@"アドレス帳へのアクセスを許可する事で、友達を捜しやすくなります"];
+        //[self showAlert:@"アドレス帳へのアクセスを許可する事で、友達を捜しやすくなります"];
     }
+}
+
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
@@ -78,7 +84,6 @@
     [userQuery whereKey:@"user_name" hasPrefix:searchBar.text];
     [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if(!error){
-            NSLog(@"テスト: %@", objects);
             _dataUserLists = [NSMutableArray arrayWithArray:objects];
             [self.userFriendsTableView reloadData];
 
@@ -97,6 +102,7 @@
     }
 }
 
+
 - (void)getContact
 {
     _mailLists = [NSMutableArray arrayWithArray:@[]];
@@ -111,16 +117,16 @@
     {
         @try {
             ABRecordRef person = CFArrayGetValueAtIndex(allPeople, i);
-            ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
-            
-            NSString *email;
-            if (ABMultiValueGetCount(emails) > 0) {
-                email = (__bridge NSString *)ABMultiValueCopyValueAtIndex(emails, 0);
-                [_mailLists addObject:email];
+            if(person != nil){
+              ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
+              NSString *email;
+              if (ABMultiValueGetCount(emails) > 0) {
+                  email = (__bridge NSString *)ABMultiValueCopyValueAtIndex(emails, 0);
+                  [_mailLists addObject:email];
+              }
             }
         }
         @catch (NSException *exception) {
-            NSLog(@"error");
         }
         @finally {
 

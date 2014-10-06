@@ -10,8 +10,11 @@
 #import <Parse/Parse.h>
 #import "LINEActivity.h"
 #import "MBCViewController.h"
+#import "FriendListsViewController.h"
 #import "ScrollViewController.h"
+#import "HowToWasshoiViewController.h"
 #import "SVProgressHUD.h"
+#import "ChanegUserNameViewController.h"
 
 @interface MypageViewController ()
 
@@ -34,37 +37,18 @@
     // Do any additional setup after loading the view.
     
     //自分で聞く用の「わっしょい」
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"kamiosakoWasshoi" ofType:@"m4a"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"kamiosakoWasshoiShort" ofType:@"m4a"];
     NSURL *url = [NSURL fileURLWithPath:path];
     self.kamiosakoWasshoi = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
-    
-    
-    // わっしょいの受信数を取得
-    PFQuery *wasshoiQuery = [PFQuery queryWithClassName:@"Wasshoi"];
-    [wasshoiQuery whereKey:@"friendUserObjectId" equalTo:[PFUser currentUser].objectId];
-    [wasshoiQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        if(!error){
-            NSString *receiverStr = @"もらった数：";
-            NSString *receiveCount = [NSString stringWithFormat:@"%lu", (unsigned long)[objects count]];
-            NSString *recieveCountLabelStr = [receiverStr stringByAppendingString:receiveCount];
-            _recieveCountLabel.text = recieveCountLabelStr;
-        } else {
-            
-        }
-    }];
-    
 
     // わっしょいの送信数を取得
     PFQuery *wasshoiSendQuery = [PFQuery queryWithClassName:@"Wasshoi"];
     [wasshoiSendQuery whereKey:@"userObjectId" equalTo:[PFUser currentUser].objectId];
     [wasshoiSendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if(!error){
-            NSString *senderStr = @"送った数：";
-            NSString *sendCount = [NSString stringWithFormat:@"%lu", (unsigned long)[objects count]];
-            NSString *sendCountLabelStr = [senderStr stringByAppendingString:sendCount];
-            _sendCountLabel.text = sendCountLabelStr;
+            _wasshoiSendCnt = [objects count];
         } else {
-          
+            //特になにもしない
         }
     }];
     
@@ -74,8 +58,13 @@
 }
 
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return 14;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -98,7 +87,7 @@
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
     }
     
@@ -109,19 +98,32 @@
         
         switch(indexPath.row/2){
             case 0:
-                settingNameLabel.text = @"自分にわっしょい";
+                settingNameLabel.text = [NSString stringWithFormat:@"ユーザー名：%@", [[PFUser currentUser] objectForKey:@"user_name"]];
+                settingNameLabel.font = [UIFont fontWithName:@"ヒラギノ明朝 ProN W6" size:20];
                 break;
             case 1:
-                settingNameLabel.text = @"友達を招待";
+                settingNameLabel.text = @"自分にわっしょい";
+                settingNameLabel.font = [UIFont fontWithName:@"ヒラギノ明朝 ProN W6" size:25];
                 break;
             case 2:
-                settingNameLabel.text = @"プライバシーポリシー";
+                settingNameLabel.text = @"友達を招待";
+                settingNameLabel.font = [UIFont fontWithName:@"ヒラギノ明朝 ProN W6" size:25];
                 break;
             case 3:
-                settingNameLabel.text = @"利用規約";
+                settingNameLabel.text = @"友達検索";
+                settingNameLabel.font = [UIFont fontWithName:@"ヒラギノ明朝 ProN W6" size:25];
                 break;
             case 4:
+                settingNameLabel.text = @"わっしょいとは？";
+                settingNameLabel.font = [UIFont fontWithName:@"ヒラギノ明朝 ProN W6" size:25];
+                break;
+            case 5:
+                settingNameLabel.text = [NSString stringWithFormat:@"わっしょいした数：%lu", (unsigned long)_wasshoiSendCnt];
+                settingNameLabel.font = [UIFont fontWithName:@"ヒラギノ明朝 ProN W6" size:25];
+                break;
+            case 6:
                 settingNameLabel.text = @"ログアウト";
+                settingNameLabel.font = [UIFont fontWithName:@"ヒラギノ明朝 ProN W6" size:25];
                 break;
         }
         
@@ -145,18 +147,21 @@
         
         switch (indexPath.row/2) {
             case 0:
-                [self.kamiosakoWasshoi play];
+                [self moveChangeUserName];
                 break;
             case 1:
-                [self shareLink];
+                [self.kamiosakoWasshoi play];
                 break;
             case 2:
-                [self modalPrivacyPolicy];
+                [self shareLink];
                 break;
             case 3:
-                [self modalTermsView];
+                [self moveFriendList];
                 break;
             case 4:
+                [self moveHowToWasshoi];
+                break;
+            case 6:
                 [self logout];
                 break;
             default:
@@ -170,6 +175,21 @@
         //backView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.90];
     }
     return;
+}
+
+- (void)moveFriendList {
+    FriendListsViewController *friendListController = [self.storyboard instantiateViewControllerWithIdentifier:@"friendLists"];
+    [self presentViewController:friendListController animated:YES completion:nil];
+}
+
+- (void)moveHowToWasshoi {
+    HowToWasshoiViewController *howToWasshoiController = [self.storyboard instantiateViewControllerWithIdentifier:@"howToWasshoi"];
+    [self presentViewController:howToWasshoiController animated:YES completion:nil];
+}
+
+- (void)moveChangeUserName {
+    ChanegUserNameViewController *chanegUserNameViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ChanegUserNameView"];
+    [self presentViewController:chanegUserNameViewController animated:YES completion:nil];
 }
 
 - (void)say_Wasshoi {
